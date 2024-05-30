@@ -4,12 +4,11 @@ declare(strict_types=1);
 
 namespace App\Tests\Core\Business\Service;
 
-use App\Core\Business\Service\CommandBus;
 use App\Core\Business\Contract\CommandHandlerInterface;
 use App\Core\Business\Contract\CommandInterface;
 use App\Core\Business\Exception\ConfigurationException;
+use App\Core\Business\Service\CommandBus;
 use App\Task\Business\Command\AddTaskCommand;
-
 use DateTimeImmutable;
 use PHPUnit\Framework\TestCase;
 

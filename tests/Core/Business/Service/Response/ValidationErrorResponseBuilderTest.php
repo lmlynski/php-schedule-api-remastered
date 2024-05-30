@@ -44,7 +44,7 @@ class ValidationErrorResponseBuilderTest extends TestCase
                 'root-two',
                 'property-two',
                 'invalid value two'
-            )
+            ),
         ];
         $violationList = new ConstraintViolationList($violations);
         $throwable = ValidationException::withViolationList($violationList);

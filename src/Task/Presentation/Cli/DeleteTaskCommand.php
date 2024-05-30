@@ -19,7 +19,7 @@ class DeleteTaskCommand extends Command
     public function __construct(
         private readonly TaskService $service,
         private readonly DeleteTaskInputHandler $inputHandler,
-        string $name = null
+        ?string $name = null
     ) {
         parent::__construct($name);
     }

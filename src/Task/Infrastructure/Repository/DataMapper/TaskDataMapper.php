@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Task\Infrastructure\Repository\DataMapper;
 
 use App\Task\Business\Domain\Task;
@@ -22,7 +24,7 @@ class TaskDataMapper
 
     public function mapOne(array $result): Task
     {
-        /** @noinspection PhpUnhandledExceptionInspection */
+        /* @noinspection PhpUnhandledExceptionInspection */
         return new Task(
             $result['guid'],
             $result['title'],
@@ -32,5 +34,4 @@ class TaskDataMapper
             new DateTimeImmutable($result['dueDate'])
         );
     }
-
 }

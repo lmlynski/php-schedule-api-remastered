@@ -22,7 +22,7 @@ class NotFoundErrorResponseBuilder implements ErrorResponseBuilderInterface
     {
         return new JsonResponse(
             [
-                self::KEY_ERROR_MESSAGE => $throwable->getMessage()
+                self::KEY_ERROR_MESSAGE => $throwable->getMessage(),
             ],
             Response::HTTP_NOT_FOUND
         );

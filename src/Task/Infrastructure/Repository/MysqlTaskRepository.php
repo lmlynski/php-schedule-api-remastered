@@ -39,7 +39,7 @@ class MysqlTaskRepository implements TaskRepositoryInterface
             ->fetchAssociative(
                 'SELECT * FROM task WHERE guid = :guid',
                 [
-                    'guid' => $guid
+                    'guid' => $guid,
                 ]
             );
 
@@ -47,7 +47,7 @@ class MysqlTaskRepository implements TaskRepositoryInterface
             throw TaskNotFoundException::forGuid($guid);
         }
 
-        /** @noinspection PhpUnhandledExceptionInspection */
+        /* @noinspection PhpUnhandledExceptionInspection */
         return new Task(
             $task['guid'],
             $task['title'],
@@ -98,7 +98,12 @@ class MysqlTaskRepository implements TaskRepositoryInterface
     {
         $criteria = [];
         foreach ($filter->getCriteria() as $criterion) {
-            $criteria[] = $criterion->getField() . ' ' . $criterion->getOperator() . ' \'' . $criterion->getValue() . '\'';
+            $criteria[] = sprintf(
+                '%s %s \'%s\'',
+                $criterion->getField(),
+                $criterion->getOperator(),
+                $criterion->getValue()
+            );
         }
         $tasks = $this->entityManager
             ->getConnection()
@@ -109,7 +114,7 @@ class MysqlTaskRepository implements TaskRepositoryInterface
                     $filter->getLimit(),
                     $filter->getOffset()
                 ),
-                );
+            );
 
         $result = [];
         foreach ($tasks as $task) {

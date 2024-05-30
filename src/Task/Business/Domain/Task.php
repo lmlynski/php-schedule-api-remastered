@@ -52,5 +52,4 @@ class Task
     {
         return $this->dueDate;
     }
-
 }

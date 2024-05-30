@@ -21,7 +21,7 @@ class ErrorResponseBuilderResolver implements ErrorResponseBuilderResolverInterf
             }
         }
 
-        /** @noinspection PhpUnhandledExceptionInspection */
+        /* @noinspection PhpUnhandledExceptionInspection */
         throw ConfigurationException::withMessage('Wrong error response builders configuration');
     }
 

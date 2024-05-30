@@ -7,7 +7,7 @@ namespace App\Task\Presentation\Http\View;
 use App\Task\Business\Domain\Task;
 use JsonSerializable;
 
- readonly class TaskView implements JsonSerializable
+readonly class TaskView implements JsonSerializable
 {
     public function __construct(private Task $task)
     {

@@ -5,9 +5,9 @@ declare(strict_types=1);
 namespace App\Tests\Core\Business\Service\Response;
 
 use App\Core\Business\Service\Response\InternalServerErrorResponseBuilder;
+use Exception;
 use PHPUnit\Framework\TestCase;
 use Symfony\Component\HttpFoundation\JsonResponse;
-use Exception;
 
 class InternalServerErrorResponseBuilderTest extends TestCase
 {

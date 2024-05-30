@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace App\Tests\Core\Business\Service\Response;
 
-use App\Core\Business\Service\Response\NotFoundErrorResponseBuilder;
 use App\Core\Business\Exception\NotFoundException;
+use App\Core\Business\Service\Response\NotFoundErrorResponseBuilder;
 use PHPUnit\Framework\TestCase;
 use Symfony\Component\HttpFoundation\JsonResponse;
 

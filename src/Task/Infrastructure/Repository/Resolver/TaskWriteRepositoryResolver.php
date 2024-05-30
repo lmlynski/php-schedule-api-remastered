@@ -24,7 +24,7 @@ class TaskWriteRepositoryResolver implements TaskWriteRepositoryResolverInterfac
             }
         }
 
-        /** @noinspection PhpUnhandledExceptionInspection */
+        /* @noinspection PhpUnhandledExceptionInspection */
         throw ConfigurationException::withMessage(sprintf('Unsupported write repository type "%s"', $this->type));
     }
 

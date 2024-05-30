@@ -22,7 +22,7 @@ class InternalServerErrorResponseBuilder implements ErrorResponseBuilderInterfac
     {
         return new JsonResponse(
             [
-                self::KEY_ERROR_MESSAGE => self::ERROR_MESSAGE
+                self::KEY_ERROR_MESSAGE => self::ERROR_MESSAGE,
             ],
             Response::HTTP_INTERNAL_SERVER_ERROR
         );

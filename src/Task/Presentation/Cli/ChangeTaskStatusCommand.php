@@ -19,7 +19,7 @@ class ChangeTaskStatusCommand extends Command
     public function __construct(
         private readonly TaskService $service,
         private readonly ChangeTaskStatusInputHandler $inputHandler,
-        string $name = null
+        ?string $name = null
     ) {
         parent::__construct($name);
     }

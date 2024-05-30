@@ -24,7 +24,7 @@ class TaskReadRepositoryResolver implements TaskReadRepositoryResolverInterface
             }
         }
 
-        /** @noinspection PhpUnhandledExceptionInspection */
+        /* @noinspection PhpUnhandledExceptionInspection */
         throw ConfigurationException::withMessage(sprintf('Unsupported read repository type "%s"', $this->type));
     }
 

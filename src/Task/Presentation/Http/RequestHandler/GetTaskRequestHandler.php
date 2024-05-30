@@ -17,7 +17,7 @@ readonly class GetTaskRequestHandler
     public function getQuery(Request $request): GetTaskQuery
     {
         $requestData = [
-            'guid' => $request->get('guid')
+            'guid' => $request->get('guid'),
         ];
 
         $this->validator->validate($requestData);

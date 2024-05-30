@@ -17,7 +17,7 @@ readonly class DeleteTaskRequestHandler
     public function getCommand(Request $request): DeleteTaskCommand
     {
         $requestData = [
-            'guid' => $request->get('guid')
+            'guid' => $request->get('guid'),
         ];
 
         $this->validator->validate($requestData);

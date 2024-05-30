@@ -19,7 +19,7 @@ class AddTaskCommand extends Command
     public function __construct(
         private readonly TaskService $service,
         private readonly AddTaskInputHandler $inputHandler,
-        string $name = null
+        ?string $name = null
     ) {
         parent::__construct($name);
     }

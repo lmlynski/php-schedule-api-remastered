@@ -21,7 +21,7 @@ readonly class AddTaskCommand implements CommandInterface
 
     public static function fromArray(array $data): self
     {
-        /** @noinspection PhpUnhandledExceptionInspection */
+        /* @noinspection PhpUnhandledExceptionInspection */
         return new self(
             $data['guid'],
             $data['title'],
