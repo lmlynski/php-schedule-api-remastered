@@ -1,0 +1,297 @@
+openapi: 3.0.0
+info:
+  title: API
+  version: 1.0.0
+paths:
+  /api/tasks:
+    get:
+      operationId: GetTaskList
+      summary: "Find tasks by criteria"
+      description: "Find tasks by criteria"
+      parameters:
+        - $ref: '#/components/parameters/TaskStatusQueryParameter'
+        - $ref: '#/components/parameters/TaskAssigneeIdQueryParameter'
+        - $ref: '#/components/parameters/TaskDueDateQueryParameter'
+      responses:
+        200:
+          $ref: '#/components/responses/TaskListResponse'
+        400:
+          $ref: '#/components/responses/BadRequestErrorResponse'
+        404:
+          $ref: '#/components/responses/NotFoundErrorResponse'
+        500:
+          $ref: '#/components/responses/InternalServerErrorResponse'
+    post:
+      operationId: AddNewTask
+      summary: "Add new task"
+      description: "Add new task"
+      requestBody:
+        $ref: '#/components/requestBodies/AddTaskRequestBody'
+      responses:
+        201:
+          $ref: '#/components/responses/NoContentResponse'
+        400:
+          $ref: '#/components/responses/BadRequestErrorResponse'
+        404:
+          $ref: '#/components/responses/NotFoundErrorResponse'
+        500:
+          $ref: '#/components/responses/InternalServerErrorResponse'
+  /api/tasks/{guid}:
+    get:
+      operationId: GetTask
+      summary: "Get task by GUID"
+      description: "Returns task data"
+      parameters:
+        - $ref: '#/components/parameters/GuidPathParameter'
+      responses:
+        201:
+          $ref: '#/components/responses/NoContentResponse'
+        400:
+          $ref: '#/components/responses/BadRequestErrorResponse'
+        404:
+          $ref: '#/components/responses/NotFoundErrorResponse'
+        500:
+          $ref: '#/components/responses/InternalServerErrorResponse'
+    delete:
+      operationId: DeleteTask
+      summary: "Delete task by GUID"
+      description: "Delete task by GUID"
+      parameters:
+        - $ref: '#/components/parameters/GuidPathParameter'
+      responses:
+        204:
+          $ref: '#/components/responses/NoContentResponse'
+        400:
+          $ref: '#/components/responses/BadRequestErrorResponse'
+        404:
+          $ref: '#/components/responses/NotFoundErrorResponse'
+        500:
+          $ref: '#/components/responses/InternalServerErrorResponse'
+  /api/tasks/{guid}/change-status:
+    patch:
+      operationId: ChangeTaskStatus
+      summary: "Change task status"
+      description: "Change task status"
+      requestBody:
+        $ref: '#/components/requestBodies/ChangeTaskStatusRequestBody'
+      parameters:
+        - $ref: '#/components/parameters/GuidPathParameter'
+      responses:
+        204:
+          $ref: '#/components/responses/NoContentResponse'
+        400:
+          $ref: '#/components/responses/BadRequestErrorResponse'
+        404:
+          $ref: '#/components/responses/NotFoundErrorResponse'
+        500:
+          $ref: '#/components/responses/InternalServerErrorResponse'
+  /api/tasks/me/today:
+    get:
+      security:
+        - bearerAuth: [ ]
+      operationId: MyTasksForToday
+      summary: "My tasks for today"
+      description: "My tasks for today. To simplify => user GUID is used as JWT Auth Token in header (click Authorize button)"
+      responses:
+        200:
+          $ref: '#/components/responses/TaskListResponse'
+        404:
+          $ref: '#/components/responses/NotFoundErrorResponse'
+        500:
+          $ref: '#/components/responses/InternalServerErrorResponse'
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+  requestBodies:
+    AddTaskRequestBody:
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/AddTaskRequestBody"
+    ChangeTaskStatusRequestBody:
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/ChangeTaskStatusRequestBody"
+  responses:
+    NoContentResponse:
+      description: Request was successful.
+      content: { }
+    BadRequestErrorResponse:
+      description: Bad Request Error Response
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ValidationErrorResponse'
+    NotFoundErrorResponse:
+      description: Bad Request Error Response
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/NotFoundErrorResponse'
+    InternalServerErrorResponse:
+      description: Internal Server Error Response
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/InternalServerErrorResponse'
+    TaskListResponse:
+      description: Task List Response
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: "#/components/schemas/Task"
+  schemas:
+    Guid:
+      type: string
+      description: Guid (unique identifier)
+      format: uuid
+      example: 78cdd473-5ed7-451e-b0bf-546bd72e3b3c
+    Date:
+      type: string
+      description: Date ("Y-m-d format")
+      format: date
+      example: "2024-05-05"
+    TaskStatus:
+      type: string
+      description: Task Status
+      enum:
+        - new
+        - in_progress
+        - done
+    TaskTitle:
+      type: string
+      description: Task Title
+      minLength: 3
+      maxLength: 40
+      example: Some Task Title
+    TaskDescription:
+      type: string
+      description: Task Description
+      minLength: 3
+      maxLength: 100
+      example: Some Task Description
+    Task:
+      type: object
+      description: Task
+      required:
+        - guid
+        - title
+        - description
+        - assigneeId
+        - status
+        - dueDate
+      properties:
+        guid:
+          $ref: '#/components/schemas/Guid'
+        title:
+          $ref: '#/components/schemas/TaskTitle'
+        description:
+          $ref: '#/components/schemas/TaskDescription'
+        assigneeId:
+          $ref: '#/components/schemas/Guid'
+        status:
+          $ref: '#/components/schemas/TaskStatus'
+        dueDate:
+          $ref: '#/components/schemas/Date'
+    NotFoundErrorResponse:
+      type: object
+      description: 'Not Found Error Response'
+      properties:
+        errorMessage:
+          type: string
+          example: 'Not Found Message'
+    ValidationErrorResponse:
+      type: object
+      description: 'Validation Error Response'
+      properties:
+        errorMessage:
+          type: string
+          example: 'Validation Error'
+        errors:
+          type: array
+          items:
+            $ref: '#/components/schemas/ValidationError'
+    InternalServerErrorResponse:
+      type: object
+      description: 'Internal Server Error Response'
+      required:
+        - errorMessage
+      properties:
+        errorMessage:
+          type: string
+          example: 'Internal Server Error'
+    ValidationError:
+      type: object
+      description: 'Validation Error'
+      required:
+        - field
+        - message
+      properties:
+        field:
+          type: string
+          description: 'Field name'
+          example: 'dueDate'
+        message:
+          type: string
+          description: 'Error message'
+          example: 'This value should be date format.'
+    AddTaskRequestBody:
+      type: object
+      required:
+        - title
+        - description
+        - assigneeId
+        - status
+        - dueDate
+      properties:
+        title:
+          $ref: '#/components/schemas/TaskTitle'
+        description:
+          $ref: '#/components/schemas/TaskDescription'
+        assigneeId:
+          $ref: '#/components/schemas/Guid'
+        status:
+          $ref: '#/components/schemas/TaskStatus'
+        dueDate:
+          $ref: '#/components/schemas/Date'
+    ChangeTaskStatusRequestBody:
+      type: object
+      required:
+        - status
+      properties:
+        status:
+          $ref: '#/components/schemas/TaskStatus'
+  parameters:
+    GuidPathParameter:
+      name: guid
+      in: path
+      description: GUID Path Parameter
+      schema:
+        $ref: '#/components/schemas/Guid'
+    TaskAssigneeIdQueryParameter:
+      name: assigneeId
+      in: query
+      required: false
+      description: TaskAssigneeId Query Parameter
+      schema:
+        $ref: '#/components/schemas/Guid'
+    TaskStatusQueryParameter:
+      name: status
+      in: query
+      required: false
+      description: TaskStatus Query Parameter
+      schema:
+        $ref: '#/components/schemas/TaskStatus'
+    TaskDueDateQueryParameter:
+      name: dueDate
+      in: query
+      required: false
+      description: TaskDueDate Query Parameter
+      schema:
+        $ref: '#/components/schemas/Date'
