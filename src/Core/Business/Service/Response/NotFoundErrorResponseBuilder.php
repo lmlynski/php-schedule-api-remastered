@@ -11,7 +11,7 @@ use Throwable;
 
 class NotFoundErrorResponseBuilder implements ErrorResponseBuilderInterface
 {
-    private const KEY_ERROR_MESSAGE = 'errorMessage';
+    private const string KEY_ERROR_MESSAGE = 'errorMessage';
 
     public function supports(Throwable $throwable): bool
     {

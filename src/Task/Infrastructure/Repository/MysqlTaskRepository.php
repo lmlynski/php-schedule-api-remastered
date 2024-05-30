@@ -14,7 +14,7 @@ use Doctrine\ORM\EntityManager;
 
 class MysqlTaskRepository implements TaskRepositoryInterface
 {
-    private const TYPE = 'mysql';
+    private const string TYPE = 'mysql';
 
     private EntityManager $entityManager;
 
@@ -128,6 +128,5 @@ class MysqlTaskRepository implements TaskRepositoryInterface
 
     public function delete(Task $task): void
     {
-        return;
     }
 }

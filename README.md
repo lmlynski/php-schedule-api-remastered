@@ -9,25 +9,23 @@ This project is remastered, updated by 3 years version of: https://github.com/lm
 
 ## Installation
 
-* Clone the repo `git clone git@github.com:lmlynski/php-schedule-api.git`
+* Clone the repo:
 
-* Build using docker with docker
+```
+$ git clone git@github.com:lmlynski/php-schedule-api-remastered.git
+```
 
-`docker-compose build && docker-compose up`
+* Go to the project folder:
 
-* Using composer (from docker php image) install all dependencies
+```
+$ cd php-schedule-api-remastered
+```
 
-`docker exec -it schedule_php composer install`
+* Start the project:
 
-or separately
-
-`docker exec -it schedule_php`
-
-and then
-
-`composer install`
-
-...
+```
+$ make run
+```
 
 And that's all!
 
@@ -37,19 +35,12 @@ To see documentation and example usage of API calls, CURLs commands just go to S
 
 http://localhost:8088/docs
 
-To run unit tests:
-
-`bin/phpunit tests/`
-
-If you have problems with mysql database create schema using sql from `docker/mysql/init_data.sql` file.
-
 ### Testing
 
 To run tests:
 
 ```
-$ make start
-$ make build
+$ make run
 $ make test
 ```
 
@@ -57,4 +48,12 @@ Or with one command make a full circle:
 
 ```
 $ make all
+```
+
+### Help
+
+To see list of available commands:
+
+```
+$ make help
 ```

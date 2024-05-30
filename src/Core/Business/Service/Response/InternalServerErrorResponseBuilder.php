@@ -10,8 +10,8 @@ use Throwable;
 
 class InternalServerErrorResponseBuilder implements ErrorResponseBuilderInterface
 {
-    private const KEY_ERROR_MESSAGE = 'errorMessage';
-    private const ERROR_MESSAGE = 'Internal server error';
+    private const string KEY_ERROR_MESSAGE = 'errorMessage';
+    private const string ERROR_MESSAGE = 'Internal server error';
 
     public function supports(Throwable $throwable): bool
     {

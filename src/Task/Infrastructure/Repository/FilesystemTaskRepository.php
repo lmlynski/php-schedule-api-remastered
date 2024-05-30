@@ -14,7 +14,7 @@ use Symfony\Component\Filesystem\Filesystem;
 
 class FilesystemTaskRepository implements TaskRepositoryInterface
 {
-    private const TYPE = 'filesystem';
+    private const string TYPE = 'filesystem';
 
     /**
      * @throws ConfigurationException

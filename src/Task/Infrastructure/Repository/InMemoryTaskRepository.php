@@ -12,7 +12,7 @@ use DateTimeImmutable;
 
 class InMemoryTaskRepository implements TaskRepositoryInterface
 {
-    private const TYPE = 'memory';
+    private const string TYPE = 'memory';
 
     private array $tasks = [];
 

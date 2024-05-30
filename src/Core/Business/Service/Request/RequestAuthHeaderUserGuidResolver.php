@@ -9,8 +9,8 @@ use Symfony\Component\HttpFoundation\RequestStack;
 
 class RequestAuthHeaderUserGuidResolver implements UserGuidResolverInterface
 {
-    private const AUTHORIZATION_HEADER_KEY = 'Authorization';
-    private const BEARER_PREFIX = 'Bearer ';
+    private const string AUTHORIZATION_HEADER_KEY = 'Authorization';
+    private const string BEARER_PREFIX = 'Bearer ';
 
     public function __construct(private readonly RequestStack $requestStack)
     {

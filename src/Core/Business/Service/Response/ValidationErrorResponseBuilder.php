@@ -11,10 +11,10 @@ use Throwable;
 
 class ValidationErrorResponseBuilder implements ErrorResponseBuilderInterface
 {
-    private const KEY_ERROR_MESSAGE = 'errorMessage';
-    private const KEY_ERRORS = 'errors';
-    private const KEY_FIELD = 'field';
-    private const KEY_MESSAGE = 'message';
+    private const string KEY_ERROR_MESSAGE = 'errorMessage';
+    private const string KEY_ERRORS = 'errors';
+    private const string KEY_FIELD = 'field';
+    private const string KEY_MESSAGE = 'message';
 
     public function supports(Throwable $throwable): bool
     {
