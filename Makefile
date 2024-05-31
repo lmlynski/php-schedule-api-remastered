@@ -1,6 +1,6 @@
-current-dir := $(dir $(abspath $(lastword $(MAKEFILE_LIST))))
+current-dir = $(dir $(abspath $(lastword $(MAKEFILE_LIST))))
 SHELL = /bin/sh
-docker-container = schedule_php_remastered
+docker-container = schedule_api_remastered_php
 
 help: ## Show make targets
 	@awk 'BEGIN {FS = ":.*?## "} /^[a-zA-Z_\-\/]+:.*?## / {sub("\\\\n",sprintf("\n%22c"," "), $$2);printf " \033[36m%-24s\033[0m  %s\n", $$1, $$2}' $(MAKEFILE_LIST)
@@ -12,7 +12,7 @@ install: ## Install dependencies
 	docker exec $(docker-container) composer install -o
 
 prepare: ## Set up project data
-	docker exec $(docker-container) composer install -o
+	cp -r data/db.json var/db.json
 
 syntax: ## Check syntax
 	docker exec $(docker-container) vendor/bin/php-cs-fixer fix --dry-run --diff --config .php-cs-fixer.dist.php --verbose

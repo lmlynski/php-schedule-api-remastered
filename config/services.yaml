@@ -5,7 +5,7 @@ parameters:
     task_write_repository_type: filesystem
     #    task_write_repository_type: mysql
     #    task_write_repository_type: memory
-    filesystem_db_dir: '%kernel.project_dir%/data/db.json'
+    filesystem_db_dir: '%kernel.project_dir%/var/db.json'
 
 services:
     _defaults:
