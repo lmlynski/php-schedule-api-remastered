@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Core\Business\Domain;
+namespace ScheduleApiRemastered\Core\Business\Domain;
 
 readonly class Criterion
 {

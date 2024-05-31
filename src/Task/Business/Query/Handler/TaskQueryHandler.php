@@ -2,16 +2,16 @@
 
 declare(strict_types=1);
 
-namespace App\Task\Business\Query\Handler;
+namespace ScheduleApiRemastered\Task\Business\Query\Handler;
 
-use App\Core\Business\Contract\UserGuidResolverInterface;
-use App\Core\Business\Domain\Criterion;
-use App\Task\Business\Domain\Task;
-use App\Task\Business\Query\GetTaskListQuery;
-use App\Task\Business\Query\GetTaskQuery;
-use App\Task\Business\Query\UserFilter;
-use App\Task\Infrastructure\Repository\Resolver\TaskReadRepositoryResolverInterface;
 use DateTimeImmutable;
+use ScheduleApiRemastered\Core\Business\Contract\UserGuidResolverInterface;
+use ScheduleApiRemastered\Core\Business\Domain\Criterion;
+use ScheduleApiRemastered\Task\Business\Domain\Task;
+use ScheduleApiRemastered\Task\Business\Query\GetTaskListQuery;
+use ScheduleApiRemastered\Task\Business\Query\GetTaskQuery;
+use ScheduleApiRemastered\Task\Business\Query\UserFilter;
+use ScheduleApiRemastered\Task\Infrastructure\Repository\Resolver\TaskReadRepositoryResolverInterface;
 
 readonly class TaskQueryHandler
 {

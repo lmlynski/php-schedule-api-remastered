@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace App\Core\Business\Service;
+namespace ScheduleApiRemastered\Core\Business\Service;
 
-use App\Core\Business\Contract\CommandBusInterface;
-use App\Core\Business\Contract\CommandHandlerInterface;
-use App\Core\Business\Contract\CommandInterface;
-use App\Core\Business\Exception\ConfigurationException;
+use ScheduleApiRemastered\Core\Business\Contract\CommandBusInterface;
+use ScheduleApiRemastered\Core\Business\Contract\CommandHandlerInterface;
+use ScheduleApiRemastered\Core\Business\Contract\CommandInterface;
+use ScheduleApiRemastered\Core\Business\Exception\ConfigurationException;
 
 class CommandBus implements CommandBusInterface
 {

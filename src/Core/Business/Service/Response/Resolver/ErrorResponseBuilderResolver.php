@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace App\Core\Business\Service\Response\Resolver;
+namespace ScheduleApiRemastered\Core\Business\Service\Response\Resolver;
 
-use App\Core\Business\Exception\ConfigurationException;
-use App\Core\Business\Service\Response\ErrorResponseBuilderInterface;
+use ScheduleApiRemastered\Core\Business\Exception\ConfigurationException;
+use ScheduleApiRemastered\Core\Business\Service\Response\ErrorResponseBuilderInterface;
 use Throwable;
 
 class ErrorResponseBuilderResolver implements ErrorResponseBuilderResolverInterface

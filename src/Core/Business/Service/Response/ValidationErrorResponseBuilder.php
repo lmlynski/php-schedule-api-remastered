@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace App\Core\Business\Service\Response;
+namespace ScheduleApiRemastered\Core\Business\Service\Response;
 
-use App\Core\Presentation\Validator\Exception\ValidationException;
+use ScheduleApiRemastered\Core\Presentation\Validator\Exception\ValidationException;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Response;
 use Throwable;

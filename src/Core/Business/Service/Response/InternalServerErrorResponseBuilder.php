@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Core\Business\Service\Response;
+namespace ScheduleApiRemastered\Core\Business\Service\Response;
 
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Response;

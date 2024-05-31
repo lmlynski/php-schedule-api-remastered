@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Task\Business\Domain\ValueObject;
+namespace ScheduleApiRemastered\Task\Business\Domain\ValueObject;
 
 use Webmozart\Assert\Assert;
 

@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace App\Task\Presentation\Http\RequestHandler;
+namespace ScheduleApiRemastered\Task\Presentation\Http\RequestHandler;
 
-use App\Task\Business\Command\DeleteTaskCommand;
-use App\Task\Presentation\Validator\AddTaskValidator;
+use ScheduleApiRemastered\Task\Business\Command\DeleteTaskCommand;
+use ScheduleApiRemastered\Task\Presentation\Validator\AddTaskValidator;
 use Symfony\Component\HttpFoundation\Request;
 
 readonly class DeleteTaskRequestHandler

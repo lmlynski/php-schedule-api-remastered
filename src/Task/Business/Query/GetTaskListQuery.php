@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Task\Business\Query;
+namespace ScheduleApiRemastered\Task\Business\Query;
 
 readonly class GetTaskListQuery
 {

@@ -2,15 +2,15 @@
 
 declare(strict_types=1);
 
-namespace App\Task\Infrastructure\Repository;
+namespace ScheduleApiRemastered\Task\Infrastructure\Repository;
 
-use App\Task\Business\Contract\TaskRepositoryInterface;
-use App\Task\Business\Domain\Task;
-use App\Task\Business\Exception\TaskNotFoundException;
-use App\Task\Business\Query\UserFilter;
-use App\Task\Infrastructure\Repository\DataMapper\TaskDataMapper;
 use Doctrine\DBAL\Exception;
 use Doctrine\ORM\EntityManager;
+use ScheduleApiRemastered\Task\Business\Contract\TaskRepositoryInterface;
+use ScheduleApiRemastered\Task\Business\Domain\Task;
+use ScheduleApiRemastered\Task\Business\Exception\TaskNotFoundException;
+use ScheduleApiRemastered\Task\Business\Query\UserFilter;
+use ScheduleApiRemastered\Task\Infrastructure\Repository\DataMapper\TaskDataMapper;
 
 class MysqlTaskRepository implements TaskRepositoryInterface
 {

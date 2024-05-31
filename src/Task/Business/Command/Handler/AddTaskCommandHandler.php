@@ -2,21 +2,21 @@
 
 declare(strict_types=1);
 
-namespace App\Task\Business\Command\Handler;
+namespace ScheduleApiRemastered\Task\Business\Command\Handler;
 
-use App\Core\Business\Contract\CommandHandlerInterface;
-use App\Core\Business\Contract\CommandInterface;
-use App\Core\Business\Domain\ValueObject\Guid;
-use App\Core\Business\Exception\ConfigurationException;
-use App\Task\Business\Command\AddTaskCommand;
-use App\Task\Business\Domain\Task;
-use App\Task\Business\Domain\ValueObject\TaskAssigneeId;
-use App\Task\Business\Domain\ValueObject\TaskDescription;
-use App\Task\Business\Domain\ValueObject\TaskDueDate;
-use App\Task\Business\Domain\ValueObject\TaskGuid;
-use App\Task\Business\Domain\ValueObject\TaskStatus;
-use App\Task\Business\Domain\ValueObject\TaskTitle;
-use App\Task\Infrastructure\Repository\Resolver\TaskWriteRepositoryResolverInterface;
+use ScheduleApiRemastered\Core\Business\Contract\CommandHandlerInterface;
+use ScheduleApiRemastered\Core\Business\Contract\CommandInterface;
+use ScheduleApiRemastered\Core\Business\Domain\ValueObject\Guid;
+use ScheduleApiRemastered\Core\Business\Exception\ConfigurationException;
+use ScheduleApiRemastered\Task\Business\Command\AddTaskCommand;
+use ScheduleApiRemastered\Task\Business\Domain\Task;
+use ScheduleApiRemastered\Task\Business\Domain\ValueObject\TaskAssigneeId;
+use ScheduleApiRemastered\Task\Business\Domain\ValueObject\TaskDescription;
+use ScheduleApiRemastered\Task\Business\Domain\ValueObject\TaskDueDate;
+use ScheduleApiRemastered\Task\Business\Domain\ValueObject\TaskGuid;
+use ScheduleApiRemastered\Task\Business\Domain\ValueObject\TaskStatus;
+use ScheduleApiRemastered\Task\Business\Domain\ValueObject\TaskTitle;
+use ScheduleApiRemastered\Task\Infrastructure\Repository\Resolver\TaskWriteRepositoryResolverInterface;
 
 class AddTaskCommandHandler implements CommandHandlerInterface
 {

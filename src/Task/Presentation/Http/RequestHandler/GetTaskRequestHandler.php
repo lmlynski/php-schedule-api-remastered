@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace App\Task\Presentation\Http\RequestHandler;
+namespace ScheduleApiRemastered\Task\Presentation\Http\RequestHandler;
 
-use App\Task\Business\Query\GetTaskQuery;
-use App\Task\Presentation\Validator\GetTaskValidator;
+use ScheduleApiRemastered\Task\Business\Query\GetTaskQuery;
+use ScheduleApiRemastered\Task\Presentation\Validator\GetTaskValidator;
 use Symfony\Component\HttpFoundation\Request;
 
 readonly class GetTaskRequestHandler

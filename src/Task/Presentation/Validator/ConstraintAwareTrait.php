@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Task\Presentation\Validator;
+namespace ScheduleApiRemastered\Task\Presentation\Validator;
 
 use Symfony\Component\Validator\Constraint;
 use Symfony\Component\Validator\Constraints;

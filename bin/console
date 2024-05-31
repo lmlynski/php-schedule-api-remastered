@@ -1,7 +1,9 @@
 #!/usr/bin/env php
 <?php
 
-use App\Kernel;
+declare(strict_types=1);
+
+use ScheduleApiRemastered\Kernel;
 use Symfony\Bundle\FrameworkBundle\Console\Application;
 
 if (!is_dir(dirname(__DIR__) . '/vendor')) {

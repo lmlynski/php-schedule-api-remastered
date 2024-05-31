@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace App\Task\Business\Query;
+namespace ScheduleApiRemastered\Task\Business\Query;
 
-use App\Core\Business\Domain\Criterion;
+use ScheduleApiRemastered\Core\Business\Domain\Criterion;
 
 class UserFilter
 {

@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace App\Task\Presentation\Cli\InputHandler;
+namespace ScheduleApiRemastered\Task\Presentation\Cli\InputHandler;
 
-use App\Task\Business\Command\ChangeTaskStatusCommand;
-use App\Task\Presentation\Validator\ChangeTaskStatusValidator;
+use ScheduleApiRemastered\Task\Business\Command\ChangeTaskStatusCommand;
+use ScheduleApiRemastered\Task\Presentation\Validator\ChangeTaskStatusValidator;
 use Symfony\Component\Console\Input\InputInterface;
 
 readonly class ChangeTaskStatusInputHandler

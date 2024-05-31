@@ -2,18 +2,18 @@
 
 declare(strict_types=1);
 
-namespace App\Task\Infrastructure\Repository;
+namespace ScheduleApiRemastered\Task\Infrastructure\Repository;
 
-use App\Task\Business\Contract\TaskRepositoryInterface;
-use App\Task\Business\Domain\Task;
-use App\Task\Business\Domain\ValueObject\TaskAssigneeId;
-use App\Task\Business\Domain\ValueObject\TaskDescription;
-use App\Task\Business\Domain\ValueObject\TaskDueDate;
-use App\Task\Business\Domain\ValueObject\TaskGuid;
-use App\Task\Business\Domain\ValueObject\TaskStatus;
-use App\Task\Business\Domain\ValueObject\TaskTitle;
-use App\Task\Business\Exception\TaskNotFoundException;
-use App\Task\Business\Query\UserFilter;
+use ScheduleApiRemastered\Task\Business\Contract\TaskRepositoryInterface;
+use ScheduleApiRemastered\Task\Business\Domain\Task;
+use ScheduleApiRemastered\Task\Business\Domain\ValueObject\TaskAssigneeId;
+use ScheduleApiRemastered\Task\Business\Domain\ValueObject\TaskDescription;
+use ScheduleApiRemastered\Task\Business\Domain\ValueObject\TaskDueDate;
+use ScheduleApiRemastered\Task\Business\Domain\ValueObject\TaskGuid;
+use ScheduleApiRemastered\Task\Business\Domain\ValueObject\TaskStatus;
+use ScheduleApiRemastered\Task\Business\Domain\ValueObject\TaskTitle;
+use ScheduleApiRemastered\Task\Business\Exception\TaskNotFoundException;
+use ScheduleApiRemastered\Task\Business\Query\UserFilter;
 
 class InMemoryTaskRepository implements TaskRepositoryInterface
 {

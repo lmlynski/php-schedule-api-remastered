@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace App\Task\Business\Contract;
+namespace ScheduleApiRemastered\Task\Business\Contract;
 
-use App\Task\Business\Domain\Task;
-use App\Task\Business\Exception\TaskNotFoundException;
-use App\Task\Business\Query\UserFilter;
+use ScheduleApiRemastered\Task\Business\Domain\Task;
+use ScheduleApiRemastered\Task\Business\Exception\TaskNotFoundException;
+use ScheduleApiRemastered\Task\Business\Query\UserFilter;
 
 interface TaskRepositoryInterface
 {

@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace App\Task\Business\Exception;
+namespace ScheduleApiRemastered\Task\Business\Exception;
 
-use App\Core\Business\Exception\NotFoundException;
+use ScheduleApiRemastered\Core\Business\Exception\NotFoundException;
 
 class TaskNotFoundException extends NotFoundException
 {

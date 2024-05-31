@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace App\Task\Presentation\Cli;
+namespace ScheduleApiRemastered\Task\Presentation\Cli;
 
-use App\Task\Business\Service\TaskService;
-use App\Task\Presentation\Cli\InputHandler\ChangeTaskStatusInputHandler;
+use ScheduleApiRemastered\Task\Business\Service\TaskService;
+use ScheduleApiRemastered\Task\Presentation\Cli\InputHandler\ChangeTaskStatusInputHandler;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;

@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Core\Business\Contract;
+namespace ScheduleApiRemastered\Core\Business\Contract;
 
 interface UserGuidResolverInterface
 {

@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace App\Task\Presentation\Http\Rest;
+namespace ScheduleApiRemastered\Task\Presentation\Http\Rest;
 
-use App\Core\Presentation\Http\Responder\NoContentJsonResponder;
-use App\Task\Business\Service\TaskService;
-use App\Task\Presentation\Http\RequestHandler\ChangeTaskStatusRequestHandler;
+use ScheduleApiRemastered\Core\Presentation\Http\Responder\NoContentJsonResponder;
+use ScheduleApiRemastered\Task\Business\Service\TaskService;
+use ScheduleApiRemastered\Task\Presentation\Http\RequestHandler\ChangeTaskStatusRequestHandler;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;

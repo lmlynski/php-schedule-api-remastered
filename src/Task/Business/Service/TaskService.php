@@ -2,16 +2,16 @@
 
 declare(strict_types=1);
 
-namespace App\Task\Business\Service;
+namespace ScheduleApiRemastered\Task\Business\Service;
 
-use App\Core\Business\Contract\CommandBusInterface;
-use App\Task\Business\Command\AddTaskCommand;
-use App\Task\Business\Command\ChangeTaskStatusCommand;
-use App\Task\Business\Command\DeleteTaskCommand;
-use App\Task\Business\Domain\Task;
-use App\Task\Business\Query\GetTaskListQuery;
-use App\Task\Business\Query\GetTaskQuery;
-use App\Task\Business\Query\Handler\TaskQueryHandler;
+use ScheduleApiRemastered\Core\Business\Contract\CommandBusInterface;
+use ScheduleApiRemastered\Task\Business\Command\AddTaskCommand;
+use ScheduleApiRemastered\Task\Business\Command\ChangeTaskStatusCommand;
+use ScheduleApiRemastered\Task\Business\Command\DeleteTaskCommand;
+use ScheduleApiRemastered\Task\Business\Domain\Task;
+use ScheduleApiRemastered\Task\Business\Query\GetTaskListQuery;
+use ScheduleApiRemastered\Task\Business\Query\GetTaskQuery;
+use ScheduleApiRemastered\Task\Business\Query\Handler\TaskQueryHandler;
 
 readonly class TaskService
 {

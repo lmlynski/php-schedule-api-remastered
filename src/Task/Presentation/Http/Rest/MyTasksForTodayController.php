@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace App\Task\Presentation\Http\Rest;
+namespace ScheduleApiRemastered\Task\Presentation\Http\Rest;
 
-use App\Task\Business\Query\Handler\TaskQueryHandler;
+use ScheduleApiRemastered\Task\Business\Query\Handler\TaskQueryHandler;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 

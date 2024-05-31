@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace App\Core\Business\Service\Request;
+namespace ScheduleApiRemastered\Core\Business\Service\Request;
 
-use App\Core\Business\Contract\UserGuidResolverInterface;
+use ScheduleApiRemastered\Core\Business\Contract\UserGuidResolverInterface;
 use Symfony\Component\HttpFoundation\RequestStack;
 
 class RequestAuthHeaderUserGuidResolver implements UserGuidResolverInterface

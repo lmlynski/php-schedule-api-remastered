@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace App\Task\Business\Command;
+namespace ScheduleApiRemastered\Task\Business\Command;
 
-use App\Core\Business\Contract\CommandInterface;
+use ScheduleApiRemastered\Core\Business\Contract\CommandInterface;
 
 readonly class AddTaskCommand implements CommandInterface
 {

@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace App\Task\Infrastructure\Repository\Resolver;
+namespace ScheduleApiRemastered\Task\Infrastructure\Repository\Resolver;
 
-use App\Task\Business\Contract\TaskRepositoryInterface;
+use ScheduleApiRemastered\Task\Business\Contract\TaskRepositoryInterface;
 
 interface TaskWriteRepositoryResolverInterface
 {

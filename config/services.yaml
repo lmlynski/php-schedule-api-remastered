@@ -11,60 +11,60 @@ services:
     _defaults:
         autowire: true      # Automatically injects dependencies in your services.
         autoconfigure: true # Automatically registers your services as commands, event subscribers, etc.
-    App\:
+    ScheduleApiRemastered\:
         resource: '../src/'
         exclude:
             - '../src/Kernel.php'
 
-    App\Task\Presentation\Http\Rest\:
+    ScheduleApiRemastered\Task\Presentation\Http\Rest\:
         resource: '../src/Task/Presentation/Http/Rest'
         tags: ['controller.service_arguments']
 
     kernel.event_listener:
-        class: App\Core\Business\Service\Event\ConsoleExceptionListener
+        class: ScheduleApiRemastered\Core\Business\Service\Event\ConsoleExceptionListener
         tags:
             - { name: kernel.event_listener, event: console.error }
 
-    App\Core\Business\Service\Event\HttpExceptionEventListener:
+    ScheduleApiRemastered\Core\Business\Service\Event\HttpExceptionEventListener:
         tags:
             - { name: kernel.event_listener, event: kernel.exception, priority: 400, method: onKernelException}
 
-    App\Core\Business\Service\Response\Resolver\ErrorResponseBuilderResolver:
+    ScheduleApiRemastered\Core\Business\Service\Response\Resolver\ErrorResponseBuilderResolver:
         calls:
-            - ['addBuilder', ['@App\Core\Business\Service\Response\ValidationErrorResponseBuilder']]
-            - ['addBuilder', ['@App\Core\Business\Service\Response\NotFoundErrorResponseBuilder']]
-            - ['addBuilder', ['@App\Core\Business\Service\Response\InternalServerErrorResponseBuilder']]
+            - ['addBuilder', ['@ScheduleApiRemastered\Core\Business\Service\Response\ValidationErrorResponseBuilder']]
+            - ['addBuilder', ['@ScheduleApiRemastered\Core\Business\Service\Response\NotFoundErrorResponseBuilder']]
+            - ['addBuilder', ['@ScheduleApiRemastered\Core\Business\Service\Response\InternalServerErrorResponseBuilder']]
 
-    App\Task\Infrastructure\Repository\Resolver\TaskReadRepositoryResolver:
+    ScheduleApiRemastered\Task\Infrastructure\Repository\Resolver\TaskReadRepositoryResolver:
         arguments:
             $type: '%task_read_repository_type%'
         calls:
-            - ['addRepository', ['@App\Task\Infrastructure\Repository\FilesystemTaskRepository']]
-            - ['addRepository', ['@App\Task\Infrastructure\Repository\MysqlTaskRepository']]
-            - ['addRepository', ['@App\Task\Infrastructure\Repository\InMemoryTaskRepository']]
+            - ['addRepository', ['@ScheduleApiRemastered\Task\Infrastructure\Repository\FilesystemTaskRepository']]
+            - ['addRepository', ['@ScheduleApiRemastered\Task\Infrastructure\Repository\MysqlTaskRepository']]
+            - ['addRepository', ['@ScheduleApiRemastered\Task\Infrastructure\Repository\InMemoryTaskRepository']]
 
-    App\Task\Infrastructure\Repository\Resolver\TaskWriteRepositoryResolver:
+    ScheduleApiRemastered\Task\Infrastructure\Repository\Resolver\TaskWriteRepositoryResolver:
         arguments:
             $type: '%task_write_repository_type%'
         calls:
-            - ['addRepository', ['@App\Task\Infrastructure\Repository\FilesystemTaskRepository']]
-            - ['addRepository', ['@App\Task\Infrastructure\Repository\MysqlTaskRepository']]
-            - ['addRepository', ['@App\Task\Infrastructure\Repository\InMemoryTaskRepository']]
+            - ['addRepository', ['@ScheduleApiRemastered\Task\Infrastructure\Repository\FilesystemTaskRepository']]
+            - ['addRepository', ['@ScheduleApiRemastered\Task\Infrastructure\Repository\MysqlTaskRepository']]
+            - ['addRepository', ['@ScheduleApiRemastered\Task\Infrastructure\Repository\InMemoryTaskRepository']]
 
-    App\Task\Infrastructure\Repository\InMemoryTaskRepository:
+    ScheduleApiRemastered\Task\Infrastructure\Repository\InMemoryTaskRepository:
         calls:
             - ['setExampleData']
 
-    App\Task\Infrastructure\Repository\MysqlTaskRepository:
+    ScheduleApiRemastered\Task\Infrastructure\Repository\MysqlTaskRepository:
         arguments:
             $entityManager: '@doctrine.orm.entity_manager'
 
-    App\Task\Infrastructure\Repository\FilesystemTaskRepository:
+    ScheduleApiRemastered\Task\Infrastructure\Repository\FilesystemTaskRepository:
         arguments:
             $dbFile: '%filesystem_db_dir%'
 
-    App\Core\Business\Service\CommandBus:
+    ScheduleApiRemastered\Core\Business\Service\CommandBus:
         calls:
-            - ['registerHandler', ['App\Task\Business\Command\AddTaskCommand', '@App\Task\Business\Command\Handler\AddTaskCommandHandler']]
-            - ['registerHandler', ['App\Task\Business\Command\ChangeTaskStatusCommand', '@App\Task\Business\Command\Handler\ChangeTaskStatusCommandHandler']]
-            - ['registerHandler', ['App\Task\Business\Command\DeleteTaskCommand', '@App\Task\Business\Command\Handler\DeleteTaskCommandHandler']]
+            - ['registerHandler', ['ScheduleApiRemastered\Task\Business\Command\AddTaskCommand', '@ScheduleApiRemastered\Task\Business\Command\Handler\AddTaskCommandHandler']]
+            - ['registerHandler', ['ScheduleApiRemastered\Task\Business\Command\ChangeTaskStatusCommand', '@ScheduleApiRemastered\Task\Business\Command\Handler\ChangeTaskStatusCommandHandler']]
+            - ['registerHandler', ['ScheduleApiRemastered\Task\Business\Command\DeleteTaskCommand', '@ScheduleApiRemastered\Task\Business\Command\Handler\DeleteTaskCommandHandler']]

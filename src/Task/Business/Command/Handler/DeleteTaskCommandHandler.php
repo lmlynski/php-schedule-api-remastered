@@ -2,14 +2,14 @@
 
 declare(strict_types=1);
 
-namespace App\Task\Business\Command\Handler;
+namespace ScheduleApiRemastered\Task\Business\Command\Handler;
 
-use App\Core\Business\Contract\CommandHandlerInterface;
-use App\Core\Business\Contract\CommandInterface;
-use App\Core\Business\Exception\ConfigurationException;
-use App\Task\Business\Command\DeleteTaskCommand;
-use App\Task\Business\Exception\TaskNotFoundException;
-use App\Task\Infrastructure\Repository\Resolver\TaskWriteRepositoryResolverInterface;
+use ScheduleApiRemastered\Core\Business\Contract\CommandHandlerInterface;
+use ScheduleApiRemastered\Core\Business\Contract\CommandInterface;
+use ScheduleApiRemastered\Core\Business\Exception\ConfigurationException;
+use ScheduleApiRemastered\Task\Business\Command\DeleteTaskCommand;
+use ScheduleApiRemastered\Task\Business\Exception\TaskNotFoundException;
+use ScheduleApiRemastered\Task\Infrastructure\Repository\Resolver\TaskWriteRepositoryResolverInterface;
 
 class DeleteTaskCommandHandler implements CommandHandlerInterface
 {

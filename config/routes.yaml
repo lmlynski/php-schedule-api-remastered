@@ -1,24 +1,24 @@
 task_get:
     path: /api/tasks/{guid}
-    controller: App\Task\Presentation\Http\Rest\GetTaskController::get
+    controller: ScheduleApiRemastered\Task\Presentation\Http\Rest\GetTaskController::get
     methods: GET
 
 task_change_status:
     path: /api/tasks/{guid}/change-status
-    controller: App\Task\Presentation\Http\Rest\ChangeTaskStatusController::changeStatus
+    controller: ScheduleApiRemastered\Task\Presentation\Http\Rest\ChangeTaskStatusController::changeStatus
     methods: PATCH
 
 my_tasks_today:
     path: /api/tasks/me/today
-    controller: App\Task\Presentation\Http\Rest\TaskController::meToday
+    controller: ScheduleApiRemastered\Task\Presentation\Http\Rest\TaskController::meToday
     methods: GET
 
 task_add:
     path: /api/tasks
-    controller: App\Task\Presentation\Http\Rest\AddTaskController::add
+    controller: ScheduleApiRemastered\Task\Presentation\Http\Rest\AddTaskController::add
     methods: POST
 
 task_list:
     path: /api/tasks
-    controller: App\Task\Presentation\Http\Rest\GetTaskListController::get
+    controller: ScheduleApiRemastered\Task\Presentation\Http\Rest\GetTaskListController::get
     methods: GET

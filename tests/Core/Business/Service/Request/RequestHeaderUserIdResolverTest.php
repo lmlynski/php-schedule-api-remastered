@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace App\Tests\Core\Business\Service\Request;
+namespace ScheduleApiRemastered\Tests\Core\Business\Service\Request;
 
-use App\Core\Business\Service\Request\RequestAuthHeaderUserGuidResolver;
 use PHPUnit\Framework\TestCase;
+use ScheduleApiRemastered\Core\Business\Service\Request\RequestAuthHeaderUserGuidResolver;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\RequestStack;
 

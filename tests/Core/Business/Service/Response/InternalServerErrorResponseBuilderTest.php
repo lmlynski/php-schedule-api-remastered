@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace App\Tests\Core\Business\Service\Response;
+namespace ScheduleApiRemastered\Tests\Core\Business\Service\Response;
 
-use App\Core\Business\Service\Response\InternalServerErrorResponseBuilder;
 use Exception;
 use PHPUnit\Framework\TestCase;
+use ScheduleApiRemastered\Core\Business\Service\Response\InternalServerErrorResponseBuilder;
 use Symfony\Component\HttpFoundation\JsonResponse;
 
 class InternalServerErrorResponseBuilderTest extends TestCase

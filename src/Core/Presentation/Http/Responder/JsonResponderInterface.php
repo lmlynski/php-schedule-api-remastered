@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Core\Presentation\Http\Responder;
+namespace ScheduleApiRemastered\Core\Presentation\Http\Responder;
 
 use Symfony\Component\HttpFoundation\JsonResponse;
 

@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace App\Task\Presentation\Cli\InputHandler;
+namespace ScheduleApiRemastered\Task\Presentation\Cli\InputHandler;
 
-use App\Task\Business\Command\AddTaskCommand;
-use App\Task\Presentation\Validator\AddTaskValidator;
+use ScheduleApiRemastered\Task\Business\Command\AddTaskCommand;
+use ScheduleApiRemastered\Task\Presentation\Validator\AddTaskValidator;
 use Symfony\Component\Console\Input\InputInterface;
 
 readonly class AddTaskInputHandler

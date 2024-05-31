@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Core\Business\Exception;
+namespace ScheduleApiRemastered\Core\Business\Exception;
 
 use Exception;
 

@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace App\Core\Presentation\Validator;
+namespace ScheduleApiRemastered\Core\Presentation\Validator;
 
-use App\Core\Presentation\Validator\Exception\ValidationException;
+use ScheduleApiRemastered\Core\Presentation\Validator\Exception\ValidationException;
 use Symfony\Component\Validator\Constraint;
 use Symfony\Component\Validator\Validator\ValidatorInterface;
 

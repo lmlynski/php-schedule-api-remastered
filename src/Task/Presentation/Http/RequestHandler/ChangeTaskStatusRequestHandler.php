@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace App\Task\Presentation\Http\RequestHandler;
+namespace ScheduleApiRemastered\Task\Presentation\Http\RequestHandler;
 
-use App\Task\Business\Command\ChangeTaskStatusCommand;
-use App\Task\Presentation\Validator\ChangeTaskStatusValidator;
+use ScheduleApiRemastered\Task\Business\Command\ChangeTaskStatusCommand;
+use ScheduleApiRemastered\Task\Presentation\Validator\ChangeTaskStatusValidator;
 use Symfony\Component\HttpFoundation\Request;
 
 readonly class ChangeTaskStatusRequestHandler

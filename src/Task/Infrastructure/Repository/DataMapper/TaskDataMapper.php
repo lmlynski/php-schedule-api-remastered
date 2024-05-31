@@ -2,15 +2,15 @@
 
 declare(strict_types=1);
 
-namespace App\Task\Infrastructure\Repository\DataMapper;
+namespace ScheduleApiRemastered\Task\Infrastructure\Repository\DataMapper;
 
-use App\Task\Business\Domain\Task;
-use App\Task\Business\Domain\ValueObject\TaskAssigneeId;
-use App\Task\Business\Domain\ValueObject\TaskDescription;
-use App\Task\Business\Domain\ValueObject\TaskDueDate;
-use App\Task\Business\Domain\ValueObject\TaskGuid;
-use App\Task\Business\Domain\ValueObject\TaskStatus;
-use App\Task\Business\Domain\ValueObject\TaskTitle;
+use ScheduleApiRemastered\Task\Business\Domain\Task;
+use ScheduleApiRemastered\Task\Business\Domain\ValueObject\TaskAssigneeId;
+use ScheduleApiRemastered\Task\Business\Domain\ValueObject\TaskDescription;
+use ScheduleApiRemastered\Task\Business\Domain\ValueObject\TaskDueDate;
+use ScheduleApiRemastered\Task\Business\Domain\ValueObject\TaskGuid;
+use ScheduleApiRemastered\Task\Business\Domain\ValueObject\TaskStatus;
+use ScheduleApiRemastered\Task\Business\Domain\ValueObject\TaskTitle;
 
 class TaskDataMapper
 {

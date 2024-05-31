@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace App\Task\Business\Domain\ValueObject;
+namespace ScheduleApiRemastered\Task\Business\Domain\ValueObject;
 
-use App\Core\Business\Domain\ValueObject\Guid;
+use ScheduleApiRemastered\Core\Business\Domain\ValueObject\Guid;
 
 final readonly class TaskAssigneeId extends Guid
 {

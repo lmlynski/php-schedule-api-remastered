@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace App\Task\Presentation\Http\Rest;
+namespace ScheduleApiRemastered\Task\Presentation\Http\Rest;
 
-use App\Task\Business\Service\TaskService;
-use App\Task\Presentation\Http\RequestHandler\GetTaskListRequestHandler;
-use App\Task\Presentation\Http\Responder\GetTaskListResponder;
+use ScheduleApiRemastered\Task\Business\Service\TaskService;
+use ScheduleApiRemastered\Task\Presentation\Http\RequestHandler\GetTaskListRequestHandler;
+use ScheduleApiRemastered\Task\Presentation\Http\Responder\GetTaskListResponder;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;

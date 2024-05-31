@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace App\Tests\Core\Business\Service\Response;
+namespace ScheduleApiRemastered\Tests\Core\Business\Service\Response;
 
-use App\Core\Business\Service\Response\ValidationErrorResponseBuilder;
-use App\Core\Presentation\Validator\Exception\ValidationException;
 use PHPUnit\Framework\TestCase;
+use ScheduleApiRemastered\Core\Business\Service\Response\ValidationErrorResponseBuilder;
+use ScheduleApiRemastered\Core\Presentation\Validator\Exception\ValidationException;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\Validator\ConstraintViolation;
 use Symfony\Component\Validator\ConstraintViolationList;

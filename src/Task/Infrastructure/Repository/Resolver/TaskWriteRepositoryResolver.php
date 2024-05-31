@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace App\Task\Infrastructure\Repository\Resolver;
+namespace ScheduleApiRemastered\Task\Infrastructure\Repository\Resolver;
 
-use App\Core\Business\Exception\ConfigurationException;
-use App\Task\Business\Contract\TaskRepositoryInterface;
+use ScheduleApiRemastered\Core\Business\Exception\ConfigurationException;
+use ScheduleApiRemastered\Task\Business\Contract\TaskRepositoryInterface;
 
 class TaskWriteRepositoryResolver implements TaskWriteRepositoryResolverInterface
 {

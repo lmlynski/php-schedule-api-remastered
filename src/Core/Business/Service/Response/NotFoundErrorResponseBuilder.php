@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace App\Core\Business\Service\Response;
+namespace ScheduleApiRemastered\Core\Business\Service\Response;
 
-use App\Core\Business\Exception\NotFoundException;
+use ScheduleApiRemastered\Core\Business\Exception\NotFoundException;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Response;
 use Throwable;

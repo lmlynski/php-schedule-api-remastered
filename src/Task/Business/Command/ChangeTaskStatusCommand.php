@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace App\Task\Business\Command;
+namespace ScheduleApiRemastered\Task\Business\Command;
 
-use App\Core\Business\Contract\CommandInterface;
-use App\Task\Business\Domain\ValueObject\TaskStatus;
+use ScheduleApiRemastered\Core\Business\Contract\CommandInterface;
+use ScheduleApiRemastered\Task\Business\Domain\ValueObject\TaskStatus;
 
 readonly class ChangeTaskStatusCommand implements CommandInterface
 {

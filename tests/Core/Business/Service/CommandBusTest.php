@@ -2,14 +2,14 @@
 
 declare(strict_types=1);
 
-namespace App\Tests\Core\Business\Service;
+namespace ScheduleApiRemastered\Tests\Core\Business\Service;
 
-use App\Core\Business\Contract\CommandHandlerInterface;
-use App\Core\Business\Contract\CommandInterface;
-use App\Core\Business\Exception\ConfigurationException;
-use App\Core\Business\Service\CommandBus;
-use App\Task\Business\Command\AddTaskCommand;
 use PHPUnit\Framework\TestCase;
+use ScheduleApiRemastered\Core\Business\Contract\CommandHandlerInterface;
+use ScheduleApiRemastered\Core\Business\Contract\CommandInterface;
+use ScheduleApiRemastered\Core\Business\Exception\ConfigurationException;
+use ScheduleApiRemastered\Core\Business\Service\CommandBus;
+use ScheduleApiRemastered\Task\Business\Command\AddTaskCommand;
 
 class CommandBusTest extends TestCase
 {

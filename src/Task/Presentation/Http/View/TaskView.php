@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace App\Task\Presentation\Http\View;
+namespace ScheduleApiRemastered\Task\Presentation\Http\View;
 
-use App\Task\Business\Domain\Task;
 use JsonSerializable;
+use ScheduleApiRemastered\Task\Business\Domain\Task;
 
 readonly class TaskView implements JsonSerializable
 {

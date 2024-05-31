@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace App\Core\Business\Service\Event;
+namespace ScheduleApiRemastered\Core\Business\Service\Event;
 
-use App\Core\Business\Service\Response\Resolver\ErrorResponseBuilderResolverInterface;
 use Psr\Log\LoggerInterface;
+use ScheduleApiRemastered\Core\Business\Service\Response\Resolver\ErrorResponseBuilderResolverInterface;
 use Symfony\Component\HttpKernel\Event\ExceptionEvent;
 
 readonly class HttpExceptionEventListener
