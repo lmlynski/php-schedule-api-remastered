@@ -15,7 +15,8 @@ prepare: ## Set up project data
 	docker exec $(docker-container) composer install -o
 
 syntax: ## Check syntax
-	docker exec $(docker-container) ./vendor/bin/php-cs-fixer fix --dry-run --diff --config .php-cs-fixer.dist.php --verbose
+	docker exec $(docker-container) vendor/bin/php-cs-fixer fix --dry-run --diff --config .php-cs-fixer.dist.php --verbose
+	docker exec $(docker-container) vendor/bin/phpstan analyse
 
 test: ## Run tests
 	docker exec $(docker-container) bin/phpunit tests
@@ -28,7 +29,7 @@ run: ## Start and run project
 	$(MAKE) install
 	$(MAKE) prepare
 
-all: ## Make full circle (start, prepare, run tests and stop the project_
+all: ## Make full circle (start, install, prepare, run syntax check and tests and stop the project)
 	$(MAKE) start
 	$(MAKE) install
 	$(MAKE) prepare

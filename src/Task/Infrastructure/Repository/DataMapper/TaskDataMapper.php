@@ -5,6 +5,9 @@ declare(strict_types=1);
 namespace App\Task\Infrastructure\Repository\DataMapper;
 
 use App\Task\Business\Domain\Task;
+use App\Task\Business\Domain\ValueObject\TaskDescription;
+use App\Task\Business\Domain\ValueObject\TaskStatus;
+use App\Task\Business\Domain\ValueObject\TaskTitle;
 use DateTimeImmutable;
 
 class TaskDataMapper
@@ -27,10 +30,10 @@ class TaskDataMapper
         /* @noinspection PhpUnhandledExceptionInspection */
         return new Task(
             $result['guid'],
-            $result['title'],
-            $result['description'],
+            new TaskTitle($result['title']),
+            new TaskDescription($result['description']),
             $result['assigneeId'],
-            $result['status'],
+            TaskStatus::from($result['status']),
             new DateTimeImmutable($result['dueDate'])
         );
     }

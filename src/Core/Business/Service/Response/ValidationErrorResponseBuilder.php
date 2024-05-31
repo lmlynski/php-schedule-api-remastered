@@ -23,8 +23,9 @@ class ValidationErrorResponseBuilder implements ErrorResponseBuilderInterface
 
     public function build(Throwable $throwable): JsonResponse
     {
+        assert($throwable instanceof ValidationException);
+
         $body = [];
-        /* @var ValidationException $throwable */
         $body[self::KEY_ERROR_MESSAGE] = $throwable->getMessage();
         foreach ($throwable->getViolationList() as $violation) {
             $body[self::KEY_ERRORS][] = [

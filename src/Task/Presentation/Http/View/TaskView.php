@@ -17,10 +17,10 @@ readonly class TaskView implements JsonSerializable
     {
         return [
             'guid' => $this->task->getGuid(),
-            'title' => $this->task->getTitle(),
-            'description' => $this->task->getDescription(),
+            'title' => $this->task->getTitle()->value,
+            'description' => $this->task->getDescription()->value,
             'assigneeId' => $this->task->getAssigneeId(),
-            'status' => $this->task->getStatus(),
+            'status' => $this->task->getStatus()->value,
             'dueDate' => $this->task->getDueDate()->format('Y-m-d'),
         ];
     }

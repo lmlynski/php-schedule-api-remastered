@@ -10,6 +10,6 @@ class TaskNotFoundException extends NotFoundException
 {
     public static function forGuid(string $guid): self
     {
-        return new static(sprintf('Task for guid "%s" not found', $guid));
+        return new self(sprintf('Task for guid "%s" not found', $guid));
     }
 }

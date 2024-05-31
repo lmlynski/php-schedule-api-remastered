@@ -10,6 +10,6 @@ class ConfigurationException extends Exception
 {
     public static function withMessage(string $message): self
     {
-        return new static($message);
+        return new self($message);
     }
 }

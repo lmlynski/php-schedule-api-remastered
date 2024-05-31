@@ -41,13 +41,16 @@ class FilesystemTaskRepository implements TaskRepositoryInterface
     {
         foreach ($this->readFromFile() as $element) {
             if ($element['guid'] === $guid) {
-                $this->mapper->mapOne($element);
+                return $this->mapper->mapOne($element);
             }
         }
 
         throw TaskNotFoundException::forGuid($guid);
     }
 
+    /**
+     * @return Task[]
+     */
     public function findAllBy(UserFilter $filter): array
     {
         $filteredArray = array_filter(
@@ -72,8 +75,8 @@ class FilesystemTaskRepository implements TaskRepositoryInterface
 
         $dataAsArray[] = [
             'guid' => $task->getGuid(),
-            'title' => $task->getTitle(),
-            'description' => $task->getDescription(),
+            'title' => $task->getTitle()->value,
+            'description' => $task->getDescription()->value,
             'assigneeId' => $task->getAssigneeId(),
             'status' => $task->getStatus(),
             'dueDate' => $task->getDueDate()->format('Y-m-d'),
@@ -88,10 +91,10 @@ class FilesystemTaskRepository implements TaskRepositoryInterface
 
         foreach ($dataAsArray as $key => $element) {
             if ($element['guid'] === $task->getGuid()) {
-                $dataAsArray[$key]['title'] = $task->getTitle();
-                $dataAsArray[$key]['description'] = $task->getDescription();
+                $dataAsArray[$key]['title'] = $task->getTitle()->value;
+                $dataAsArray[$key]['description'] = $task->getDescription()->value;
                 $dataAsArray[$key]['assigneeId'] = $task->getAssigneeId();
-                $dataAsArray[$key]['status'] = $task->getStatus();
+                $dataAsArray[$key]['status'] = $task->getStatus()->value;
                 $dataAsArray[$key]['dueDate'] = $task->getDueDate()->format('Y-m-d');
             }
         }
