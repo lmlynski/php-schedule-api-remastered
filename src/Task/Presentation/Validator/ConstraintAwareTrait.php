@@ -17,12 +17,7 @@ trait ConstraintAwareTrait
         return [
             new Constraints\NotBlank(),
             new Constraints\Type('string'),
-            new Constraints\Regex(
-                [
-                    'pattern' => '/^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i',
-                    'message' => 'This value should be GUID format.',
-                ]
-            ),
+            new Constraints\Uuid(),
         ];
     }
 
@@ -34,11 +29,7 @@ trait ConstraintAwareTrait
         return [
             new Constraints\NotBlank(),
             new Constraints\Type('string'),
-            new Constraints\Date(
-                [
-                    'message' => 'This value should be date format.',
-                ]
-            ),
+            new Constraints\Date(),
         ];
     }
 
@@ -50,7 +41,7 @@ trait ConstraintAwareTrait
         return [
             new Constraints\NotBlank(),
             new Constraints\Type('string'),
-            new Constraints\Length(['min' => 3, 'max' => 256]),
+            new Constraints\Length(['min' => 3, 'max' => 40]),
         ];
     }
 
@@ -62,7 +53,7 @@ trait ConstraintAwareTrait
         return [
             new Constraints\NotBlank(),
             new Constraints\Type('string'),
-            new Constraints\Length(['min' => 3, 'max' => 2000]),
+            new Constraints\Length(['min' => 10, 'max' => 2000]),
         ];
     }
 
@@ -74,7 +65,7 @@ trait ConstraintAwareTrait
         return [
             new Constraints\NotBlank(),
             new Constraints\Type('string'),
-            new Constraints\Length(['min' => 3, 'max' => 2000]),
+            new Constraints\Choice(['new', 'in_progress', 'done']),
         ];
     }
 }

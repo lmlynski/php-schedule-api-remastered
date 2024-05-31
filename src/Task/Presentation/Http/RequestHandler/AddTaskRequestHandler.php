@@ -16,12 +16,7 @@ readonly class AddTaskRequestHandler
 
     public function getCommand(Request $request): AddTaskCommand
     {
-        $requestData = array_merge(
-            (array)json_decode($request->getContent(), true),
-            [
-                'guid' => $request->get('guid'),
-            ]
-        );
+        $requestData = (array)json_decode($request->getContent(), true);
 
         $this->validator->validate($requestData);
 

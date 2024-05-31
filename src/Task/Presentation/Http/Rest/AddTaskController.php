@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Task\Presentation\Http\Rest;
 
-use App\Core\Presentation\Http\Responder\NoContentJsonResponder;
+use App\Core\Presentation\Http\Responder\CreatedJsonResponder;
 use App\Task\Business\Service\TaskService;
 use App\Task\Presentation\Http\RequestHandler\AddTaskRequestHandler;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -16,7 +16,7 @@ class AddTaskController extends AbstractController
     public function __construct(
         private readonly TaskService $service,
         private readonly AddTaskRequestHandler $requestHandler,
-        private readonly NoContentJsonResponder $responder,
+        private readonly CreatedJsonResponder $responder,
     ) {
     }
 

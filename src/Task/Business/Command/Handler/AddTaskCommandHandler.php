@@ -6,10 +6,14 @@ namespace App\Task\Business\Command\Handler;
 
 use App\Core\Business\Contract\CommandHandlerInterface;
 use App\Core\Business\Contract\CommandInterface;
+use App\Core\Business\Domain\ValueObject\Guid;
 use App\Core\Business\Exception\ConfigurationException;
 use App\Task\Business\Command\AddTaskCommand;
 use App\Task\Business\Domain\Task;
+use App\Task\Business\Domain\ValueObject\TaskAssigneeId;
 use App\Task\Business\Domain\ValueObject\TaskDescription;
+use App\Task\Business\Domain\ValueObject\TaskDueDate;
+use App\Task\Business\Domain\ValueObject\TaskGuid;
 use App\Task\Business\Domain\ValueObject\TaskStatus;
 use App\Task\Business\Domain\ValueObject\TaskTitle;
 use App\Task\Infrastructure\Repository\Resolver\TaskWriteRepositoryResolverInterface;
@@ -33,12 +37,12 @@ class AddTaskCommandHandler implements CommandHandlerInterface
         }
 
         $task = new Task(
-            $command->guid,
+            new TaskGuid(Guid::generate()),
             new TaskTitle($command->title),
             new TaskDescription($command->description),
-            $command->assigneeId,
+            new TaskAssigneeId($command->assigneeId),
             TaskStatus::from($command->status),
-            $command->dueDate
+            new TaskDueDate($command->dueDate)
         );
 
         $this->taskWriteRepositoryResolver->get()->add($task);

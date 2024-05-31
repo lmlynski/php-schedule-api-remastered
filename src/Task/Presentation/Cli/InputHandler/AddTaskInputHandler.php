@@ -6,7 +6,6 @@ namespace App\Task\Presentation\Cli\InputHandler;
 
 use App\Task\Business\Command\AddTaskCommand;
 use App\Task\Presentation\Validator\AddTaskValidator;
-use Ramsey\Uuid\Uuid;
 use Symfony\Component\Console\Input\InputInterface;
 
 readonly class AddTaskInputHandler
@@ -18,7 +17,6 @@ readonly class AddTaskInputHandler
     public function getCommand(InputInterface $input): AddTaskCommand
     {
         $cliData = [
-            'guid' => Uuid::uuid4()->toString(),
             'title' => $input->getArgument('title'),
             'description' => $input->getArgument('description'),
             'assigneeId' => $input->getArgument('assigneeId'),

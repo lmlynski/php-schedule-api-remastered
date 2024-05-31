@@ -5,10 +5,12 @@ declare(strict_types=1);
 namespace App\Task\Infrastructure\Repository\DataMapper;
 
 use App\Task\Business\Domain\Task;
+use App\Task\Business\Domain\ValueObject\TaskAssigneeId;
 use App\Task\Business\Domain\ValueObject\TaskDescription;
+use App\Task\Business\Domain\ValueObject\TaskDueDate;
+use App\Task\Business\Domain\ValueObject\TaskGuid;
 use App\Task\Business\Domain\ValueObject\TaskStatus;
 use App\Task\Business\Domain\ValueObject\TaskTitle;
-use DateTimeImmutable;
 
 class TaskDataMapper
 {
@@ -27,14 +29,13 @@ class TaskDataMapper
 
     public function mapOne(array $result): Task
     {
-        /* @noinspection PhpUnhandledExceptionInspection */
         return new Task(
-            $result['guid'],
+            new TaskGuid($result['guid']),
             new TaskTitle($result['title']),
             new TaskDescription($result['description']),
-            $result['assigneeId'],
+            new TaskAssigneeId($result['assigneeId']),
             TaskStatus::from($result['status']),
-            new DateTimeImmutable($result['dueDate'])
+            new TaskDueDate($result['dueDate'])
         );
     }
 }

@@ -60,12 +60,12 @@ class MysqlTaskRepository implements TaskRepositoryInterface
                 'INSERT INTO task (guid, title, description, assigneeId, status, dueDate)
                 VALUES (:guid, :title, :description, :assigneeId, :status, :dueDate)',
                 [
-                    'guid' => $task->getGuid(),
+                    'guid' => $task->getGuid()->value,
                     'title' => $task->getTitle()->value,
                     'description' => $task->getDescription()->value,
-                    'assigneeId' => $task->getAssigneeId(),
+                    'assigneeId' => $task->getAssigneeId()->value,
                     'status' => $task->getStatus()->value,
-                    'dueDate' => $task->getDueDate()->format('Y-m-d'),
+                    'dueDate' => $task->getDueDate()->value,
                 ]
             );
     }
@@ -81,12 +81,12 @@ class MysqlTaskRepository implements TaskRepositoryInterface
                 'REPLACE INTO task (guid, title, description, assigneeId, status, dueDate)
                 VALUES (:guid, :title, :description, :assigneeId, :status, :dueDate)',
                 [
-                    'guid' => $task->getGuid(),
+                    'guid' => $task->getGuid()->value,
                     'title' => $task->getTitle()->value,
                     'description' => $task->getDescription()->value,
-                    'assigneeId' => $task->getAssigneeId(),
+                    'assigneeId' => $task->getAssigneeId()->value,
                     'status' => $task->getStatus()->value,
-                    'dueDate' => $task->getDueDate()->format('Y-m-d'),
+                    'dueDate' => $task->getDueDate()->value,
                 ]
             );
     }

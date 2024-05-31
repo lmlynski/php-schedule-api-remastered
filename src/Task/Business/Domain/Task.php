@@ -4,24 +4,26 @@ declare(strict_types=1);
 
 namespace App\Task\Business\Domain;
 
+use App\Task\Business\Domain\ValueObject\TaskAssigneeId;
 use App\Task\Business\Domain\ValueObject\TaskDescription;
+use App\Task\Business\Domain\ValueObject\TaskDueDate;
+use App\Task\Business\Domain\ValueObject\TaskGuid;
 use App\Task\Business\Domain\ValueObject\TaskStatus;
 use App\Task\Business\Domain\ValueObject\TaskTitle;
-use DateTimeImmutable;
 
 class Task
 {
     public function __construct(
-        private readonly string $guid,
+        private readonly TaskGuid $guid,
         private readonly TaskTitle $title,
         private readonly TaskDescription $description,
-        private readonly string $assigneeId,
+        private readonly TaskAssigneeId $assigneeId,
         private TaskStatus $status,
-        private readonly DateTimeImmutable $dueDate
+        private readonly TaskDueDate $dueDate
     ) {
     }
 
-    public function getGuid(): string
+    public function getGuid(): TaskGuid
     {
         return $this->guid;
     }
@@ -36,7 +38,7 @@ class Task
         return $this->description;
     }
 
-    public function getAssigneeId(): string
+    public function getAssigneeId(): TaskAssigneeId
     {
         return $this->assigneeId;
     }
@@ -51,7 +53,7 @@ class Task
         $this->status = $status;
     }
 
-    public function getDueDate(): DateTimeImmutable
+    public function getDueDate(): TaskDueDate
     {
         return $this->dueDate;
     }

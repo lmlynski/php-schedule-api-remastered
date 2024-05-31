@@ -16,7 +16,6 @@ class AddTaskValidator extends AbstractValidator
     {
         return new Constraints\Collection(
             [
-                'guid' => self::guid(),
                 'title' => self::taskTitle(),
                 'description' => self::taskDescription(),
                 'assigneeId' => self::guid(),

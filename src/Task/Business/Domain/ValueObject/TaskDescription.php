@@ -9,7 +9,7 @@ use Webmozart\Assert\Assert;
 final readonly class TaskDescription
 {
     public const int MIN_LENGTH = 10;
-    public const int MAX_LENGTH = 1000;
+    public const int MAX_LENGTH = 2000;
 
     public function __construct(public string $value)
     {

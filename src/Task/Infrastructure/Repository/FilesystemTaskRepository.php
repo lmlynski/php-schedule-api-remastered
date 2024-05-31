@@ -74,12 +74,12 @@ class FilesystemTaskRepository implements TaskRepositoryInterface
         $dataAsArray = $this->readFromFile();
 
         $dataAsArray[] = [
-            'guid' => $task->getGuid(),
+            'guid' => $task->getGuid()->value,
             'title' => $task->getTitle()->value,
             'description' => $task->getDescription()->value,
-            'assigneeId' => $task->getAssigneeId(),
+            'assigneeId' => $task->getAssigneeId()->value,
             'status' => $task->getStatus(),
-            'dueDate' => $task->getDueDate()->format('Y-m-d'),
+            'dueDate' => $task->getDueDate()->value,
         ];
 
         $this->saveToFile($dataAsArray);
@@ -90,12 +90,12 @@ class FilesystemTaskRepository implements TaskRepositoryInterface
         $dataAsArray = $this->readFromFile();
 
         foreach ($dataAsArray as $key => $element) {
-            if ($element['guid'] === $task->getGuid()) {
+            if ($element['guid'] === $task->getGuid()->value) {
                 $dataAsArray[$key]['title'] = $task->getTitle()->value;
                 $dataAsArray[$key]['description'] = $task->getDescription()->value;
-                $dataAsArray[$key]['assigneeId'] = $task->getAssigneeId();
+                $dataAsArray[$key]['assigneeId'] = $task->getAssigneeId()->value;
                 $dataAsArray[$key]['status'] = $task->getStatus()->value;
-                $dataAsArray[$key]['dueDate'] = $task->getDueDate()->format('Y-m-d');
+                $dataAsArray[$key]['dueDate'] = $task->getDueDate()->value;
             }
         }
 
@@ -107,7 +107,7 @@ class FilesystemTaskRepository implements TaskRepositoryInterface
         $dataAsArray = $this->readFromFile();
 
         foreach ($dataAsArray as $key => $element) {
-            if ($element['guid'] === $task->getGuid()) {
+            if ($element['guid'] === $task->getGuid()->value) {
                 unset($dataAsArray[$key]);
 
                 break;
