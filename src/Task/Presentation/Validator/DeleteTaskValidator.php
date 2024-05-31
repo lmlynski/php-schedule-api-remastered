@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Task\Presentation\Validator;
 
-use App\Core\Presentation\Validation\AbstractValidator;
+use App\Core\Presentation\Validator\AbstractValidator;
 use Symfony\Component\Validator\Constraint;
 use Symfony\Component\Validator\Constraints;
 

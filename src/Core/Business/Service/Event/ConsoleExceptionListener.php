@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Core\Business\Service\Event;
 
-use App\Core\Presentation\Validation\Exception\ValidationException;
+use App\Core\Presentation\Validator\Exception\ValidationException;
 use Symfony\Component\Console\Event\ConsoleErrorEvent;
 
 readonly class ConsoleExceptionListener

@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace App\Tests\Core\Business\Service\Response;
 
 use App\Core\Business\Service\Response\ValidationErrorResponseBuilder;
-use App\Core\Presentation\Validation\Exception\ValidationException;
+use App\Core\Presentation\Validator\Exception\ValidationException;
 use PHPUnit\Framework\TestCase;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\Validator\ConstraintViolation;

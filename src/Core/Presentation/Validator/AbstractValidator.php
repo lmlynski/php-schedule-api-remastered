@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace App\Core\Presentation\Validation;
+namespace App\Core\Presentation\Validator;
 
-use App\Core\Presentation\Validation\Exception\ValidationException;
+use App\Core\Presentation\Validator\Exception\ValidationException;
 use Symfony\Component\Validator\Constraint;
 use Symfony\Component\Validator\Validator\ValidatorInterface;
 

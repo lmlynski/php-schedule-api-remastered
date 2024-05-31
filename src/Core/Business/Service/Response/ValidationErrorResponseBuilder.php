@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Core\Business\Service\Response;
 
-use App\Core\Presentation\Validation\Exception\ValidationException;
+use App\Core\Presentation\Validator\Exception\ValidationException;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Response;
 use Throwable;
@@ -29,7 +29,7 @@ class ValidationErrorResponseBuilder implements ErrorResponseBuilderInterface
         $body[self::KEY_ERROR_MESSAGE] = $throwable->getMessage();
         foreach ($throwable->getViolationList() as $violation) {
             $body[self::KEY_ERRORS][] = [
-                self::KEY_FIELD => $violation->getPropertyPath(),
+                self::KEY_FIELD => trim($violation->getPropertyPath(), '[]'),
                 self::KEY_MESSAGE => $violation->getMessage(),
             ];
         }

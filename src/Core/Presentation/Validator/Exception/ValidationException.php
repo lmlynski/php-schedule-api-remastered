@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Core\Presentation\Validation\Exception;
+namespace App\Core\Presentation\Validator\Exception;
 
 use RuntimeException;
 use Symfony\Component\Validator\ConstraintViolationListInterface;
