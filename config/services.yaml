@@ -1,8 +1,8 @@
 parameters:
-    task_read_repository_type: filesystem
+    task_read_repository_type: mysql
     #    task_read_repository_type: mysql
     #    task_read_repository_type: memory
-    task_write_repository_type: filesystem
+    task_write_repository_type: mysql
     #    task_write_repository_type: mysql
     #    task_write_repository_type: memory
     filesystem_db_dir: '%kernel.project_dir%/var/db.json'
@@ -57,7 +57,7 @@ services:
 
     ScheduleApiRemastered\Task\Infrastructure\Repository\MysqlTaskRepository:
         arguments:
-            $entityManager: '@doctrine.orm.entity_manager'
+            $connection: '@doctrine.dbal.default_connection'
 
     ScheduleApiRemastered\Task\Infrastructure\Repository\FilesystemTaskRepository:
         arguments:

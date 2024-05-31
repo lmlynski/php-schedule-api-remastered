@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace ScheduleApiRemastered\Task\Infrastructure\Repository;
 
+use Doctrine\DBAL\Connection;
 use Doctrine\DBAL\Exception;
-use Doctrine\ORM\EntityManager;
 use ScheduleApiRemastered\Task\Business\Contract\TaskRepositoryInterface;
 use ScheduleApiRemastered\Task\Business\Domain\Task;
 use ScheduleApiRemastered\Task\Business\Exception\TaskNotFoundException;
@@ -17,7 +17,7 @@ class MysqlTaskRepository implements TaskRepositoryInterface
     private const string TYPE = 'mysql';
 
     public function __construct(
-        private readonly EntityManager $entityManager,
+        private readonly Connection $connection,
         private readonly TaskDataMapper $mapper
     ) {
     }
@@ -33,8 +33,7 @@ class MysqlTaskRepository implements TaskRepositoryInterface
      */
     public function findByGuid(string $guid): Task
     {
-        $task = $this->entityManager
-            ->getConnection()
+        $task = $this->connection
             ->fetchAssociative(
                 'SELECT * FROM task WHERE guid = :guid',
                 [
@@ -54,8 +53,7 @@ class MysqlTaskRepository implements TaskRepositoryInterface
      */
     public function add(Task $task): void
     {
-        $this->entityManager
-            ->getConnection()
+        $this->connection
             ->executeStatement(
                 'INSERT INTO task (guid, title, description, assigneeId, status, dueDate)
                 VALUES (:guid, :title, :description, :assigneeId, :status, :dueDate)',
@@ -75,8 +73,7 @@ class MysqlTaskRepository implements TaskRepositoryInterface
      */
     public function save(Task $task): void
     {
-        $this->entityManager
-            ->getConnection()
+        $this->connection
             ->executeStatement(
                 'REPLACE INTO task (guid, title, description, assigneeId, status, dueDate)
                 VALUES (:guid, :title, :description, :assigneeId, :status, :dueDate)',
@@ -107,12 +104,13 @@ class MysqlTaskRepository implements TaskRepositoryInterface
                 $criterion->getValue()
             );
         }
-        $tasks = $this->entityManager
-            ->getConnection()
+        $wherePart = !empty($criteria) ? (' WHERE ' . implode(' AND ', $criteria)) : '';
+
+        $tasks = $this->connection
             ->fetchAllAssociative(
                 sprintf(
-                    'SELECT * FROM task WHERE %s LIMIT %d OFFSET %d',
-                    implode(' AND ', $criteria),
+                    'SELECT * FROM task %s LIMIT %d OFFSET %d',
+                    $wherePart,
                     $filter->getLimit(),
                     $filter->getOffset()
                 ),

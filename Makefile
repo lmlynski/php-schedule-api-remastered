@@ -11,8 +11,9 @@ start: ## Start project
 install: ## Install dependencies
 	docker exec $(docker-container) composer install -o
 
-prepare: ## Set up project data
-	cp -r data/db.json var/db.json
+prepare: ## Set up project startup data
+	@test -s .env && echo ".env already exists" || (echo "Copying .env.dist to .env" && cp -n .env.dist .env)
+	@test -s var/db.json && echo "var/db.json already exists" || (echo "Copying data/db.json to var/db.json" && cp -n data/db.json data/db.json)
 
 syntax: ## Check syntax
 	docker exec $(docker-container) vendor/bin/php-cs-fixer fix --dry-run --diff --config .php-cs-fixer.dist.php --verbose
@@ -25,14 +26,14 @@ stop: ## Stop project
 	docker compose down --remove-orphans -v
 
 run: ## Start and run project
+	$(MAKE) prepare
 	$(MAKE) start
 	$(MAKE) install
-	$(MAKE) prepare
 
-all: ## Make full circle (start, install, prepare, run syntax check and tests and stop the project)
+all: ## Make full circle (prepare env, start, install, run syntax check and tests and stop the project)
+	$(MAKE) prepare
 	$(MAKE) start
 	$(MAKE) install
-	$(MAKE) prepare
 	$(MAKE) syntax
 	$(MAKE) test
 	$(MAKE) stop
