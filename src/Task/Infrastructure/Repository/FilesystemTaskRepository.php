@@ -66,7 +66,7 @@ class FilesystemTaskRepository implements TaskRepositoryInterface
             }
         );
 
-        return $this->mapper->mapMany(array_slice($filteredArray, $filter->getOffset(), $filter->getLimit()));
+        return $this->mapper->mapMany(array_slice($filteredArray, $filter->getPage()->getOffset(), $filter->getPage()->getLimit()));
     }
 
     public function add(Task $task): void

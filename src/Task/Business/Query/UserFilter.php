@@ -5,32 +5,17 @@ declare(strict_types=1);
 namespace ScheduleApiRemastered\Task\Business\Query;
 
 use ScheduleApiRemastered\Core\Business\Domain\Criterion;
+use ScheduleApiRemastered\Core\Business\Domain\Page;
 
 class UserFilter
 {
-    private int $offset;
-    private int $limit;
     /** @var Criterion[] */
     private array $criteria = [];
+    private Page $page;
 
     public function __construct()
     {
-        $this->offset = 0;
-        $this->limit = 10;
-    }
-
-    public function setOffset(int $offset): self
-    {
-        $this->offset = $offset;
-
-        return $this;
-    }
-
-    public function setLimit(int $limit): self
-    {
-        $this->limit = $limit;
-
-        return $this;
+        $this->page = Page::default();
     }
 
     public function addCriterion(Criterion $criterion): self
@@ -40,18 +25,23 @@ class UserFilter
         return $this;
     }
 
-    public function getOffset(): int
+    public function setPage(?int $pageNumber, ?int $limit): self
     {
-        return $this->offset;
+        $this->page = Page::create($pageNumber, $limit);
+
+        return $this;
     }
 
-    public function getLimit(): int
-    {
-        return $this->limit;
-    }
-
+    /**
+     * @return Criterion[]
+     */
     public function getCriteria(): array
     {
         return $this->criteria;
+    }
+
+    public function getPage(): Page
+    {
+        return $this->page;
     }
 }

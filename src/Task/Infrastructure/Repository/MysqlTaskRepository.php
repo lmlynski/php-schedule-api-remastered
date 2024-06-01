@@ -49,6 +49,36 @@ class MysqlTaskRepository implements TaskRepositoryInterface
     }
 
     /**
+     * @return Task[]
+     *
+     * @throws Exception
+     */
+    public function findAllBy(UserFilter $filter): array
+    {
+        $criteria = [];
+        foreach ($filter->getCriteria() as $criterion) {
+            $criteria[] = sprintf(
+                '%s %s \'%s\'',
+                $criterion->getField(),
+                $criterion->getOperator(),
+                $criterion->getValue()
+            );
+        }
+
+        $tasks = $this->connection
+            ->fetchAllAssociative(
+                sprintf(
+                    'SELECT * FROM task %s LIMIT %d OFFSET %d',
+                    !empty($criteria) ? ('WHERE ' . implode(' AND ', $criteria)) : '',
+                    $filter->getPage()->getLimit(),
+                    $filter->getPage()->getOffset()
+                ),
+            );
+
+        return $this->mapper->mapMany($tasks);
+    }
+
+    /**
      * @throws Exception
      */
     public function add(Task $task): void
@@ -76,7 +106,7 @@ class MysqlTaskRepository implements TaskRepositoryInterface
         $this->connection
             ->executeStatement(
                 'REPLACE INTO task (guid, title, description, assigneeId, status, dueDate)
-                VALUES (:guid, :title, :description, :assigneeId, :status, :dueDate)',
+                 VALUES (:guid, :title, :description, :assigneeId, :status, :dueDate)',
                 [
                     'guid' => $task->getGuid()->value,
                     'title' => $task->getTitle()->value,
@@ -89,37 +119,16 @@ class MysqlTaskRepository implements TaskRepositoryInterface
     }
 
     /**
-     * @return Task[]
-     *
      * @throws Exception
      */
-    public function findAllBy(UserFilter $filter): array
-    {
-        $criteria = [];
-        foreach ($filter->getCriteria() as $criterion) {
-            $criteria[] = sprintf(
-                '%s %s \'%s\'',
-                $criterion->getField(),
-                $criterion->getOperator(),
-                $criterion->getValue()
-            );
-        }
-        $wherePart = !empty($criteria) ? (' WHERE ' . implode(' AND ', $criteria)) : '';
-
-        $tasks = $this->connection
-            ->fetchAllAssociative(
-                sprintf(
-                    'SELECT * FROM task %s LIMIT %d OFFSET %d',
-                    $wherePart,
-                    $filter->getLimit(),
-                    $filter->getOffset()
-                ),
-            );
-
-        return $this->mapper->mapMany($tasks);
-    }
-
     public function delete(Task $task): void
     {
+        $this->connection
+            ->executeStatement(
+                'DELETE FROM task WHERE guid = :guid',
+                [
+                    'guid' => $task->getGuid()->value,
+                ]
+            );
     }
 }

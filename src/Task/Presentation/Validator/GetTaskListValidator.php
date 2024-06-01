@@ -26,6 +26,12 @@ class GetTaskListValidator extends AbstractValidator
                     'dueDate' => new Constraints\Optional(
                         self::date()
                     ),
+                    'limit' => new Constraints\Optional(
+                        self::limit()
+                    ),
+                    'page' => new Constraints\Optional(
+                        self::page()
+                    ),
                 ],
                 'allowExtraFields' => true,
             ]

@@ -30,7 +30,7 @@ class CommandBusTest extends TestCase
             'some-description',
             'some-assigneeId',
             'some-status',
-            '2021-02-02'
+            '2024-05-25'
         );
 
         $commandHandler = $this->createMock(CommandHandlerInterface::class);

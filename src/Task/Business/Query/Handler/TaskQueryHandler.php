@@ -41,6 +41,7 @@ readonly class TaskQueryHandler
         if ($query->dueDate) {
             $filter->addCriterion(new Criterion('dueDate', $query->dueDate));
         }
+        $filter->setPage($query->pageNumber, $query->limit);
 
         return $this->taskReadRepositoryResolver->get()->findAllBy($filter);
     }

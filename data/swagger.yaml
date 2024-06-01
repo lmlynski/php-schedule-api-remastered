@@ -12,6 +12,8 @@ paths:
         - $ref: '#/components/parameters/TaskStatusQueryParameter'
         - $ref: '#/components/parameters/TaskAssigneeIdQueryParameter'
         - $ref: '#/components/parameters/TaskDueDateQueryParameter'
+        - $ref: '#/components/parameters/LimitQueryParameter'
+        - $ref: '#/components/parameters/PageNumberQueryParameter'
       responses:
         200:
           $ref: '#/components/responses/TaskListResponse'
@@ -163,6 +165,17 @@ components:
       description: Date ("Y-m-d format")
       format: date
       example: "2024-05-05"
+    Limit:
+      type: integer
+      description: Limit
+      minimum: 1
+      maximum: 1000
+      example: 10
+    PageNumber:
+      type: integer
+      description: Page Number
+      minimum: 1
+      example: 1
     TaskStatus:
       type: string
       description: Task Status
@@ -280,6 +293,20 @@ components:
       description: GUID Path Parameter
       schema:
         $ref: '#/components/schemas/Guid'
+    LimitQueryParameter:
+      name: limit
+      in: query
+      required: false
+      description: Limit Query Parameter
+      schema:
+        $ref: '#/components/schemas/Limit'
+    PageNumberQueryParameter:
+      name: page
+      in: query
+      required: false
+      description: Page Number Query Parameter
+      schema:
+        $ref: '#/components/schemas/PageNumber'
     TaskAssigneeIdQueryParameter:
       name: assigneeId
       in: query

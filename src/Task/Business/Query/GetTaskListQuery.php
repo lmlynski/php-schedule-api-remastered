@@ -7,9 +7,11 @@ namespace ScheduleApiRemastered\Task\Business\Query;
 readonly class GetTaskListQuery
 {
     public function __construct(
-        public ?string $status,
-        public ?string $assigneeId,
-        public ?string $dueDate,
+        public ?string $status = null,
+        public ?string $assigneeId = null,
+        public ?string $dueDate = null,
+        public ?int $pageNumber = null,
+        public ?int $limit = null
     ) {
     }
 }

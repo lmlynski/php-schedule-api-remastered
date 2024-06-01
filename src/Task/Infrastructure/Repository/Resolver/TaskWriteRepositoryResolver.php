@@ -10,7 +10,7 @@ use ScheduleApiRemastered\Task\Business\Contract\TaskRepositoryInterface;
 class TaskWriteRepositoryResolver implements TaskWriteRepositoryResolverInterface
 {
     /** @var TaskRepositoryInterface[] */
-    private array $repositories;
+    private array $repositories = [];
 
     public function __construct(private readonly string $type)
     {

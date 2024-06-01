@@ -20,6 +20,8 @@ readonly class GetTaskListRequestHandler
         $status = $request->query->get('status');
         $assigneeId = $request->query->get('assigneeId');
         $dueDate = $request->query->get('dueDate');
+        $limit = $request->query->get('limit');
+        $pageNumber = $request->query->get('page');
 
         if ($status !== null) {
             $requestData['status'] = $status;
@@ -30,9 +32,17 @@ readonly class GetTaskListRequestHandler
         if ($dueDate !== null) {
             $requestData['dueDate'] = $dueDate;
         }
+        if ($limit !== null) {
+            $requestData['limit'] = $limit;
+            $limit = (int)$limit;
+        }
+        if ($pageNumber !== null) {
+            $requestData['page'] = $pageNumber;
+            $pageNumber = (int)$pageNumber;
+        }
 
         $this->validator->validate($requestData);
 
-        return new GetTaskListQuery($status, $assigneeId, $dueDate);
+        return new GetTaskListQuery($status, $assigneeId, $dueDate, $pageNumber, $limit);
     }
 }

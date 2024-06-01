@@ -61,7 +61,7 @@ class InMemoryTaskRepository implements TaskRepositoryInterface
             $result[] = $task;
         }
 
-        return array_slice($result, $filter->getOffset(), $filter->getLimit());
+        return array_slice($result, $filter->getPage()->getOffset(), $filter->getPage()->getLimit());
     }
 
     public function delete(Task $task): void
@@ -85,7 +85,7 @@ class InMemoryTaskRepository implements TaskRepositoryInterface
             new TaskDescription('description two'),
             new TaskAssigneeId('05fe9fbd-273b-4878-8d4b-349e50318c2d'),
             TaskStatus::DONE,
-            new TaskDueDate('2024-05-09')
+            new TaskDueDate('2024-05-29')
         );
         $this->tasks['4653997f-13db-4a7a-a2db-736f75b00185'] = new Task(
             new TaskGuid('4653997f-13db-4a7a-a2db-736f75b00185'),
@@ -93,7 +93,7 @@ class InMemoryTaskRepository implements TaskRepositoryInterface
             new TaskDescription('description three'),
             new TaskAssigneeId('ef5e8615-7b8a-4c25-9e85-b1e8241686c8'),
             TaskStatus::NEW,
-            new TaskDueDate('2024-05-11')
+            new TaskDueDate('2024-05-21')
         );
         $this->tasks['78cdd473-5ed7-451e-b0bf-546bd72e3b3c'] = new Task(
             new TaskGuid('78cdd473-5ed7-451e-b0bf-546bd72e3b3c'),
