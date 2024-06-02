@@ -3,19 +3,18 @@ version: '3.8'
 services:
     mysql:
         image: mysql:8.0.17
-        container_name: schedule_api_remastered_mysql
+        container_name: ${COMPOSE_PROJECT_NAME}_mysql
         command: ["--default-authentication-plugin=mysql_native_password"]
         volumes:
             - mysql_data:/var/lib/mysql
             - ./docker/mysql/entrypoint-initdb.d:/docker-entrypoint-initdb.d
         environment:
-            MYSQL_PASSWORD: helloworld
-            MYSQL_DATABASE: schedule
-            MYSQL_ROOT_PASSWORD: helloworld
+            MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+            MYSQL_DATABASE: ${MYSQL_DATABASE}
         ports:
             - "3306:3306"
     php:
-        container_name: schedule_api_remastered_php
+        container_name: ${COMPOSE_PROJECT_NAME}_php
         build:
             context: ./docker/php
         volumes:
@@ -24,7 +23,7 @@ services:
             - "9005:9000"
     nginx:
         image: nginx:stable
-        container_name: schedule_api_remastered_nginx
+        container_name: ${COMPOSE_PROJECT_NAME}_nginx
         ports:
             - "8088:80"
         volumes:
