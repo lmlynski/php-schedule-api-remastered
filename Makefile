@@ -16,6 +16,7 @@ prepare: ## Set up project startup data
 syntax: ## Check syntax
 	docker exec $(DOCKER-CONTAINER) vendor/bin/php-cs-fixer fix --dry-run --diff --config .php-cs-fixer.dist.php --verbose
 	docker exec $(DOCKER-CONTAINER) vendor/bin/phpstan analyse
+	docker exec $(DOCKER-CONTAINER) vendor/bin/phpmd src,tests ansi phpmd.xml
 
 test: ## Run tests
 	docker exec $(DOCKER-CONTAINER) bin/phpunit tests
