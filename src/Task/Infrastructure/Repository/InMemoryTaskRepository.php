@@ -13,7 +13,7 @@ use ScheduleApiRemastered\Task\Business\Domain\ValueObject\TaskGuid;
 use ScheduleApiRemastered\Task\Business\Domain\ValueObject\TaskStatus;
 use ScheduleApiRemastered\Task\Business\Domain\ValueObject\TaskTitle;
 use ScheduleApiRemastered\Task\Business\Exception\TaskNotFoundException;
-use ScheduleApiRemastered\Task\Business\Query\UserFilter;
+use ScheduleApiRemastered\Task\Business\Query\Filter\TaskSearchFilter;
 
 class InMemoryTaskRepository implements TaskRepositoryInterface
 {
@@ -48,7 +48,7 @@ class InMemoryTaskRepository implements TaskRepositoryInterface
         $this->tasks[$task->getGuid()->value] = $task;
     }
 
-    public function findAllBy(UserFilter $filter): array
+    public function findAllBy(TaskSearchFilter $filter): array
     {
         $result = [];
         foreach ($this->tasks as $task) {

@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace ScheduleApiRemastered\Task\Business\Query;
+namespace ScheduleApiRemastered\Task\Business\Query\Filter;
 
 use ScheduleApiRemastered\Core\Business\Domain\Criterion;
 use ScheduleApiRemastered\Core\Business\Domain\Page;
 
-class UserFilter
+class TaskSearchFilter
 {
     /** @var Criterion[] */
     private array $criteria = [];

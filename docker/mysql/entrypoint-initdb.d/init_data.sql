@@ -7,7 +7,9 @@ CREATE TABLE IF NOT EXISTS task
     description text        NOT NULL,
     assigneeId  varchar(40) NOT NULL,
     status      varchar(40) NOT NULL,
-    dueDate     date        NOT NULL
+    dueDate     date        NOT NULL,
+    INDEX idx_dueDate (dueDate),
+    INDEX idx_assigneeId (assigneeId)
 ) ENGINE = InnoDB
   COLLATE = utf8mb4_unicode_ci;
 

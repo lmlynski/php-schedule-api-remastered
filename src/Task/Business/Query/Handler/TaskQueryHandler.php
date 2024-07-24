@@ -8,9 +8,9 @@ use DateTimeImmutable;
 use ScheduleApiRemastered\Core\Business\Contract\UserGuidResolverInterface;
 use ScheduleApiRemastered\Core\Business\Domain\Criterion;
 use ScheduleApiRemastered\Task\Business\Domain\Task;
+use ScheduleApiRemastered\Task\Business\Query\Filter\TaskSearchFilter;
 use ScheduleApiRemastered\Task\Business\Query\GetTaskListQuery;
 use ScheduleApiRemastered\Task\Business\Query\GetTaskQuery;
-use ScheduleApiRemastered\Task\Business\Query\UserFilter;
 use ScheduleApiRemastered\Task\Infrastructure\Repository\Resolver\TaskReadRepositoryResolverInterface;
 
 readonly class TaskQueryHandler
@@ -31,7 +31,7 @@ readonly class TaskQueryHandler
      */
     public function findBy(GetTaskListQuery $query): array
     {
-        $filter = new UserFilter();
+        $filter = new TaskSearchFilter();
         if ($query->status) {
             $filter->addCriterion(new Criterion('status', $query->status));
         }
@@ -51,7 +51,7 @@ readonly class TaskQueryHandler
      */
     public function getMyTodayTasks(): array
     {
-        $filter = (new UserFilter())
+        $filter = (new TaskSearchFilter())
             ->addCriterion(new Criterion('dueDate', (new DateTimeImmutable())->format('Y-m-d')))
             ->addCriterion(new Criterion('assigneeId', $this->userGuidResolverInterface->resolve()));
 

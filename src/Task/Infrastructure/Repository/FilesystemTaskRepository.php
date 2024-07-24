@@ -8,7 +8,7 @@ use ScheduleApiRemastered\Core\Business\Exception\ConfigurationException;
 use ScheduleApiRemastered\Task\Business\Contract\TaskRepositoryInterface;
 use ScheduleApiRemastered\Task\Business\Domain\Task;
 use ScheduleApiRemastered\Task\Business\Exception\TaskNotFoundException;
-use ScheduleApiRemastered\Task\Business\Query\UserFilter;
+use ScheduleApiRemastered\Task\Business\Query\Filter\TaskSearchFilter;
 use ScheduleApiRemastered\Task\Infrastructure\Repository\DataMapper\TaskDataMapper;
 use Symfony\Component\Filesystem\Filesystem;
 
@@ -51,7 +51,7 @@ class FilesystemTaskRepository implements TaskRepositoryInterface
     /**
      * @return Task[]
      */
-    public function findAllBy(UserFilter $filter): array
+    public function findAllBy(TaskSearchFilter $filter): array
     {
         $filteredArray = array_filter(
             $this->readFromFile(),

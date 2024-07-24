@@ -9,7 +9,7 @@ use Doctrine\DBAL\Exception;
 use ScheduleApiRemastered\Task\Business\Contract\TaskRepositoryInterface;
 use ScheduleApiRemastered\Task\Business\Domain\Task;
 use ScheduleApiRemastered\Task\Business\Exception\TaskNotFoundException;
-use ScheduleApiRemastered\Task\Business\Query\UserFilter;
+use ScheduleApiRemastered\Task\Business\Query\Filter\TaskSearchFilter;
 use ScheduleApiRemastered\Task\Infrastructure\Repository\DataMapper\TaskDataMapper;
 
 class MysqlTaskRepository implements TaskRepositoryInterface
@@ -53,7 +53,7 @@ class MysqlTaskRepository implements TaskRepositoryInterface
      *
      * @throws Exception
      */
-    public function findAllBy(UserFilter $filter): array
+    public function findAllBy(TaskSearchFilter $filter): array
     {
         $criteria = [];
         foreach ($filter->getCriteria() as $criterion) {

@@ -17,7 +17,7 @@ use ScheduleApiRemastered\Task\Business\Domain\ValueObject\TaskGuid;
 use ScheduleApiRemastered\Task\Business\Domain\ValueObject\TaskStatus;
 use ScheduleApiRemastered\Task\Business\Domain\ValueObject\TaskTitle;
 use ScheduleApiRemastered\Task\Business\Exception\TaskNotFoundException;
-use ScheduleApiRemastered\Task\Business\Query\UserFilter;
+use ScheduleApiRemastered\Task\Business\Query\Filter\TaskSearchFilter;
 use ScheduleApiRemastered\Task\Infrastructure\Repository\DataMapper\TaskDataMapper;
 use ScheduleApiRemastered\Task\Infrastructure\Repository\MysqlTaskRepository;
 
@@ -130,7 +130,7 @@ class MysqlTaskRepositoryTest extends TestCase
             ->willReturn($tasksFromDb);
 
         $result = $this->repository->findAllBy(
-            (new UserFilter())->addCriterion(new Criterion('status', 'new')),
+            (new TaskSearchFilter())->addCriterion(new Criterion('status', 'new')),
         );
 
         self::assertCount(2, $result);
@@ -152,7 +152,7 @@ class MysqlTaskRepositoryTest extends TestCase
             ->willReturn($tasksFromDb);
 
         $result = $this->repository->findAllBy(
-            (new UserFilter())->addCriterion(new Criterion('status', 'new')),
+            (new TaskSearchFilter())->addCriterion(new Criterion('status', 'new')),
         );
 
         self::assertCount(0, $result);

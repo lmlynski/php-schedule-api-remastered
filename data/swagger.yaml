@@ -1,10 +1,15 @@
 openapi: 3.0.0
 info:
-  title: API
+  title: PHP Schedule API Remastered
   version: 1.0.0
+tags:
+  - name: tasks
+    description: Tasks related endpoints.
 paths:
   /api/tasks:
     get:
+      tags:
+        - tasks
       operationId: GetTaskList
       summary: "Find tasks by criteria"
       description: "Find tasks by criteria"
@@ -24,6 +29,8 @@ paths:
         500:
           $ref: '#/components/responses/InternalServerErrorResponse'
     post:
+      tags:
+        - tasks
       operationId: AddNewTask
       summary: "Add new task"
       description: "Add new task"
@@ -40,6 +47,8 @@ paths:
           $ref: '#/components/responses/InternalServerErrorResponse'
   /api/tasks/{guid}:
     get:
+      tags:
+        - tasks
       operationId: GetTask
       summary: "Get task by GUID"
       description: "Returns task data"
@@ -55,6 +64,8 @@ paths:
         500:
           $ref: '#/components/responses/InternalServerErrorResponse'
     delete:
+      tags:
+        - tasks
       operationId: DeleteTask
       summary: "Delete task by GUID"
       description: "Delete task by GUID"
@@ -71,6 +82,8 @@ paths:
           $ref: '#/components/responses/InternalServerErrorResponse'
   /api/tasks/{guid}/change-status:
     patch:
+      tags:
+        - tasks
       operationId: ChangeTaskStatus
       summary: "Change task status"
       description: "Change task status"
@@ -89,6 +102,8 @@ paths:
           $ref: '#/components/responses/InternalServerErrorResponse'
   /api/tasks/me/today:
     get:
+      tags:
+        - tasks
       security:
         - bearerAuth: [ ]
       operationId: MyTasksForToday
@@ -162,7 +177,7 @@ components:
       example: 78cdd473-5ed7-451e-b0bf-546bd72e3b3c
     Date:
       type: string
-      description: Date ("Y-m-d format")
+      description: Date ("Y-m-d" format)
       format: date
       example: "2024-05-05"
     Limit:

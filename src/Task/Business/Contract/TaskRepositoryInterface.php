@@ -6,7 +6,7 @@ namespace ScheduleApiRemastered\Task\Business\Contract;
 
 use ScheduleApiRemastered\Task\Business\Domain\Task;
 use ScheduleApiRemastered\Task\Business\Exception\TaskNotFoundException;
-use ScheduleApiRemastered\Task\Business\Query\UserFilter;
+use ScheduleApiRemastered\Task\Business\Query\Filter\TaskSearchFilter;
 
 interface TaskRepositoryInterface
 {
@@ -20,7 +20,7 @@ interface TaskRepositoryInterface
     /**
      * @return Task[]
      */
-    public function findAllBy(UserFilter $filter): array;
+    public function findAllBy(TaskSearchFilter $filter): array;
 
     public function add(Task $task): void;
 
