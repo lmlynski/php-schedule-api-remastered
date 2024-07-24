@@ -1,4 +1,6 @@
 {
+    "name": "lmlynski/schedule-api-remastered",
+    "description": "Simple over engineered schedule REST API",
     "type": "project",
     "license": "proprietary",
     "minimum-stability": "stable",
@@ -8,7 +10,7 @@
         "ext-ctype": "*",
         "ext-iconv": "*",
         "ext-json": "*",
-        "doctrine/dbal": "^3.8",
+        "doctrine/dbal": "^4.0",
         "doctrine/doctrine-bundle": "^2.12",
         "ramsey/uuid": "^4.7",
         "symfony/console": "^6.3",
