@@ -14,7 +14,7 @@ use Symfony\Component\Console\Style\SymfonyStyle;
 
 class AddTaskCommand extends Command
 {
-    protected static $defaultName = 'app:task:add';
+    protected static string $defaultName = 'app:task:add';
 
     public function __construct(
         private readonly TaskService $service,

@@ -14,7 +14,7 @@ use Symfony\Component\Console\Style\SymfonyStyle;
 
 class ChangeTaskStatusCommand extends Command
 {
-    protected static $defaultName = 'app:task:change_status';
+    protected static string $defaultName = 'app:task:change_status';
 
     public function __construct(
         private readonly TaskService $service,
