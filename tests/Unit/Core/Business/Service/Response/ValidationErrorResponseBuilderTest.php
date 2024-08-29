@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace ScheduleApiRemastered\Tests\Core\Business\Service\Response;
+namespace ScheduleApiRemastered\Tests\Unit\Core\Business\Service\Response;
 
 use PHPUnit\Framework\TestCase;
 use ScheduleApiRemastered\Core\Business\Service\Response\ValidationErrorResponseBuilder;

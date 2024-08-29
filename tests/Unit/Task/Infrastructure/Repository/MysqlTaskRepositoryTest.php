@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace ScheduleApiRemastered\Tests\Task\Infrastructure\Repository;
+namespace ScheduleApiRemastered\Tests\Unit\Task\Infrastructure\Repository;
 
 use Doctrine\DBAL\Connection;
 use Doctrine\DBAL\Exception;
@@ -27,6 +27,7 @@ class MysqlTaskRepositoryTest extends TestCase
     private Connection $connection;
     private MysqlTaskRepository $repository;
 
+    /* @noinspection PhpUnhandledExceptionInspection */
     protected function setUp(): void
     {
         $this->connection = $this->createMock(Connection::class);

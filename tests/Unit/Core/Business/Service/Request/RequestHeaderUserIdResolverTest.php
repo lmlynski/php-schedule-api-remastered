@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace ScheduleApiRemastered\Tests\Core\Business\Service\Request;
+namespace ScheduleApiRemastered\Tests\Unit\Core\Business\Service\Request;
 
 use PHPUnit\Framework\TestCase;
 use ScheduleApiRemastered\Core\Business\Service\Request\RequestAuthHeaderUserGuidResolver;

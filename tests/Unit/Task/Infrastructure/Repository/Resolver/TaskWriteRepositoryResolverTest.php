@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace ScheduleApiRemastered\Tests\Task\Infrastructure\Repository\Resolver;
+namespace ScheduleApiRemastered\Tests\Unit\Task\Infrastructure\Repository\Resolver;
 
 use PHPUnit\Framework\TestCase;
 use ScheduleApiRemastered\Core\Business\Exception\ConfigurationException;

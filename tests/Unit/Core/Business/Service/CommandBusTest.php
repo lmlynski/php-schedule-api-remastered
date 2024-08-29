@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace ScheduleApiRemastered\Tests\Core\Business\Service;
+namespace ScheduleApiRemastered\Tests\Unit\Core\Business\Service;
 
 use PHPUnit\Framework\TestCase;
 use ScheduleApiRemastered\Core\Business\Contract\CommandHandlerInterface;

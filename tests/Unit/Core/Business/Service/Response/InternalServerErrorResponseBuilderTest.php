@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace ScheduleApiRemastered\Tests\Core\Business\Service\Response;
+namespace ScheduleApiRemastered\Tests\Unit\Core\Business\Service\Response;
 
 use Exception;
 use PHPUnit\Framework\TestCase;

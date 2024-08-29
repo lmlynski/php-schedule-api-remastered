@@ -16,6 +16,7 @@ return (new PhpCsFixer\Config())
             'spacing' => 'one',
         ],
         'single_line_throw' => false,
+        'phpdoc_separation' => false,
     ])
     ->setFinder(
         (new PhpCsFixer\Finder())->in([
